@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba8jo7gxob2ea"]
+
+[ext_resource type="PackedScene" uid="uid://cptyemigr3ksv" path="res://Assets/GLB format/budi.glb" id="1_tjd43"]
+
+[node name="budi" instance=ExtResource("1_tjd43")]

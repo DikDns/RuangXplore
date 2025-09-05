@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpcdxbv7p11c8"]
+
+[ext_resource type="PackedScene" uid="uid://bisvnsj3icbbo" path="res://Assets/Classroom/blackboardbig.glb" id="1_rpjun"]
+
+[node name="blackboardbig2" instance=ExtResource("1_rpjun")]

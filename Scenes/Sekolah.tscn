@@ -1,0 +1,659 @@
+[gd_scene load_steps=67 format=3 uid="uid://r7if1uc6ijcj"]
+
+[ext_resource type="Shader" uid="uid://ly0w71s30gki" path="res://Resources/SkyShader.gdshader" id="1_xyudt"]
+[ext_resource type="Texture2D" uid="uid://cv88nxw1ykg2w" path="res://Assets/Images/moon.svg" id="2_nib4y"]
+[ext_resource type="Texture2D" uid="uid://3tgtiuvu1whs" path="res://Assets/Images/shooting_star_sampler.png" id="3_bwhuw"]
+[ext_resource type="Texture2D" uid="uid://658ep5kd638w" path="res://Assets/Sekolah/ubin.jpg" id="4_nib4y"]
+[ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://Scenes/Player.tscn" id="4_yrwm8"]
+[ext_resource type="Texture2D" uid="uid://cqpja0kcdrev7" path="res://Assets/Images/gravelly_sand_diff_4k.jpg" id="5_bwhuw"]
+[ext_resource type="Texture2D" uid="uid://bsaryd3brqyja" path="res://Assets/Images/painted_plaster_wall_disp_4k.png" id="5_nrevd"]
+[ext_resource type="Texture2D" uid="uid://ccs7qqndpmjk2" path="res://Assets/Images/clay_roof_tiles_diff_4k.jpg" id="6_046tm"]
+[ext_resource type="PackedScene" uid="uid://bisvnsj3icbbo" path="res://Assets/Classroom/blackboardbig.glb" id="7_yrwm8"]
+[ext_resource type="PackedScene" uid="uid://bj5lo2ooghpff" path="res://Assets/Classroom/chair.glb" id="8_bjxra"]
+[ext_resource type="PackedScene" uid="uid://dpivujdt3i2fs" path="res://Assets/Classroom/table.glb" id="8_pp6hd"]
+[ext_resource type="Texture2D" uid="uid://bd1mxiukghrow" path="res://Assets/Images/laminate_floor_02_diff_4k.jpg" id="10_kkca3"]
+[ext_resource type="PackedScene" uid="uid://ci2utefbwc6sq" path="res://Assets/Classroom/watch.glb" id="10_nrevd"]
+[ext_resource type="PackedScene" uid="uid://dfp020drbk5x2" path="res://Assets/Classroom/shelf.glb" id="11_kkca3"]
+[ext_resource type="PackedScene" uid="uid://dwr5lo4h2myri" path="res://Assets/Classroom/chalkboard_sponge_.glb" id="12_046tm"]
+[ext_resource type="PackedScene" uid="uid://chtl01dj4n28x" path="res://Assets/Classroom/chalk.glb" id="13_a5wm3"]
+[ext_resource type="PackedScene" uid="uid://y6v02fg1xsd1" path="res://Assets/Classroom/shelf_001.glb" id="14_jkujp"]
+[ext_resource type="PackedScene" uid="uid://ypnyphl2eyty" path="res://Assets/Classroom/book.glb" id="15_325q7"]
+[ext_resource type="PackedScene" uid="uid://bqs7slry2l25u" path="res://Assets/Classroom/book_001.glb" id="16_dmgh1"]
+[ext_resource type="PackedScene" uid="uid://d1j8p1ua3sxdn" path="res://Assets/Classroom/book_.glb" id="17_0tmpm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bjxra"]
+frequency = 0.0001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gb0x4"]
+noise = SubResource("FastNoiseLite_bjxra")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5gwjy"]
+noise_type = 2
+frequency = 0.0076
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5b0gk"]
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_5gwjy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwk5s"]
+shader = ExtResource("1_xyudt")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_gb0x4")
+shader_parameter/clouds_samples = 16
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.0
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_5b0gk")
+shader_parameter/high_clouds_density = 1.0
+shader_parameter/top_color = Color(0.386392, 0.831638, 0.911817, 1)
+shader_parameter/bottom_color = Color(0.183273, 0.107992, 0.220882, 1)
+shader_parameter/sun_scatter = Color(0.185498, 0.41621, 1, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_sampler = ExtResource("2_nib4y")
+shader_parameter/astro_scale = 8.0
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 5.0
+shader_parameter/shooting_star_sampler = ExtResource("3_bwhuw")
+shader_parameter/shooting_star_tint = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_5f1lx"]
+sky_material = SubResource("ShaderMaterial_cwk5s")
+
+[sub_resource type="Environment" id="Environment_euept"]
+background_mode = 2
+background_color = Color(0.57252, 0.764393, 0.753591, 1)
+sky = SubResource("Sky_5f1lx")
+sdfgi_y_scale = 0
+glow_enabled = true
+fog_sun_scatter = 0.3
+fog_sky_affect = 0.5
+volumetric_fog_density = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nib4y"]
+albedo_texture = ExtResource("4_nib4y")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ii422"]
+material = SubResource("StandardMaterial3D_nib4y")
+size = Vector2(10, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3b7fu"]
+size = Vector3(10, 0, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bwhuw"]
+size = Vector2(0.1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrevd"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.32549, 0.431373, 0.466667, 1)
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_bwhuw"]
+material = SubResource("StandardMaterial3D_nrevd")
+size = Vector3(0.2, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjxra"]
+size = Vector3(0.2, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_046tm"]
+shading_mode = 0
+albedo_color = Color(0.32549, 0.431373, 0.466667, 1)
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5gwjy"]
+material = SubResource("StandardMaterial3D_046tm")
+size = Vector3(0.5, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwk5s"]
+size = Vector3(0.5, 4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yrwm8"]
+size = Vector3(0.5, 0.075, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjxra"]
+size = Vector3(0.05, 10, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gwjy"]
+size = Vector3(0.05, 10, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cwk5s"]
+size = Vector3(1.5, 0.01, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkca3"]
+shading_mode = 0
+albedo_color = Color(0.913725, 0.933333, 0.776471, 1)
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ii422"]
+material = SubResource("StandardMaterial3D_kkca3")
+size = Vector3(0.1, 4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epvcm"]
+size = Vector3(0.1, 4, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5wm3"]
+shading_mode = 0
+albedo_color = Color(0.913725, 0.933333, 0.776471, 1)
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_euept"]
+material = SubResource("StandardMaterial3D_a5wm3")
+size = Vector3(0.1, 4, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ii422"]
+size = Vector3(0.1, 4, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkujp"]
+shading_mode = 0
+albedo_color = Color(0.913725, 0.933333, 0.776471, 1)
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_bnvos"]
+material = SubResource("StandardMaterial3D_jkujp")
+size = Vector3(0.1, 4, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sepfj"]
+size = Vector3(0.1, 4, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cws23"]
+shading_mode = 0
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3b7fu"]
+material = SubResource("StandardMaterial3D_cws23")
+size = Vector3(10, 0.01, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqdwo"]
+albedo_texture = ExtResource("6_046tm")
+uv1_scale = Vector3(0.22, 0.22, 0.22)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_epvcm"]
+material = SubResource("StandardMaterial3D_gqdwo")
+size = Vector3(7.5, 0.01, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yk1l0"]
+albedo_texture = ExtResource("6_046tm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_sepfj"]
+material = SubResource("StandardMaterial3D_yk1l0")
+size = Vector3(7.5, 0.01, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_325q7"]
+shading_mode = 0
+albedo_color = Color(0.913725, 0.933333, 0.776471, 1)
+albedo_texture = ExtResource("5_nrevd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_nib4y"]
+material = SubResource("StandardMaterial3D_325q7")
+size = Vector3(0.1, 7, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yrwm8"]
+size = Vector3(0.117, 1.239, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjxra"]
+albedo_texture = ExtResource("5_bwhuw")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5gwjy"]
+material = SubResource("StandardMaterial3D_bjxra")
+size = Vector2(10, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmgh1"]
+albedo_texture = ExtResource("10_kkca3")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_cws23"]
+material = SubResource("StandardMaterial3D_dmgh1")
+size = Vector3(8, 0.1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tmpm"]
+albedo_texture = ExtResource("10_kkca3")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gqdwo"]
+material = SubResource("StandardMaterial3D_0tmpm")
+size = Vector3(8, 0.3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrevd"]
+size = Vector3(1.03601, 0.851685, 4.86258)
+
+[node name="Sekolah" type="Node3D"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_euept")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, 0, 20, 0)
+light_color = Color(0, 0.336525, 0.748168, 1)
+light_energy = 3.0
+shadow_enabled = true
+directional_shadow_mode = 1
+
+[node name="BangunanSekolah" type="MeshInstance3D" parent="World"]
+
+[node name="Lantai" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.01, 5)
+mesh = SubResource("PlaneMesh_ii422")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Lantai"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Lantai/StaticBody3D"]
+shape = SubResource("BoxShape3D_3b7fu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/BangunanSekolah/Lantai"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5, 0, 0)
+mesh = SubResource("PlaneMesh_bwhuw")
+
+[node name="Pagar1" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857919, 0, -2.5)
+mesh = SubResource("BoxMesh_bwhuw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Pagar1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Pagar1/StaticBody3D"]
+shape = SubResource("BoxShape3D_bjxra")
+
+[node name="Pagar3" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.086, 0, 12.5)
+mesh = SubResource("BoxMesh_bwhuw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Pagar3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Pagar3/StaticBody3D"]
+shape = SubResource("BoxShape3D_bjxra")
+
+[node name="Tiang" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 2, 0)
+mesh = SubResource("BoxMesh_5gwjy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Tiang"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Tiang/StaticBody3D"]
+shape = SubResource("BoxShape3D_cwk5s")
+
+[node name="Tiang2" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 2, 9.782)
+mesh = SubResource("BoxMesh_5gwjy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Tiang2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Tiang2/StaticBody3D"]
+shape = SubResource("BoxShape3D_cwk5s")
+
+[node name="TiangBendera" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59155, 0, 5.12322)
+mesh = SubResource("BoxMesh_yrwm8")
+
+[node name="TiangBendera1" type="MeshInstance3D" parent="World/BangunanSekolah/TiangBendera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("BoxMesh_bjxra")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/TiangBendera/TiangBendera1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/TiangBendera/TiangBendera1/StaticBody3D"]
+shape = SubResource("BoxShape3D_5gwjy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/BangunanSekolah/TiangBendera"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 9.16535, 1.25168)
+mesh = SubResource("BoxMesh_cwk5s")
+
+[node name="Kelas" type="MeshInstance3D" parent="World/BangunanSekolah"]
+
+[node name="TembokKelas1" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99902, 2, -3.9804)
+mesh = SubResource("BoxMesh_ii422")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokKelas1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokKelas1/StaticBody3D"]
+shape = SubResource("BoxShape3D_epvcm")
+
+[node name="TembokKelas5" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99902, 2, 13.4476)
+mesh = SubResource("BoxMesh_ii422")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokKelas5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokKelas5/StaticBody3D"]
+shape = SubResource("BoxShape3D_epvcm")
+
+[node name="TembokKelas3" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99902, 2, 4.75903)
+mesh = SubResource("BoxMesh_ii422")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokKelas3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokKelas3/StaticBody3D"]
+shape = SubResource("BoxShape3D_epvcm")
+
+[node name="TembokKelas2" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1.26224)
+mesh = SubResource("BoxMesh_euept")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokKelas2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokKelas2/StaticBody3D"]
+shape = SubResource("BoxShape3D_ii422")
+
+[node name="TembokKelas4" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 9.95364)
+mesh = SubResource("BoxMesh_euept")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokKelas4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokKelas4/StaticBody3D"]
+shape = SubResource("BoxShape3D_ii422")
+
+[node name="TembokAntarKelas" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.98242, 2, 5.11032)
+mesh = SubResource("BoxMesh_bnvos")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokAntarKelas"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokAntarKelas/StaticBody3D"]
+shape = SubResource("BoxShape3D_sepfj")
+
+[node name="TembokAntarKelas2" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.982, 2, -4.92508)
+mesh = SubResource("BoxMesh_bnvos")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokAntarKelas2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokAntarKelas2/StaticBody3D"]
+shape = SubResource("BoxShape3D_sepfj")
+
+[node name="TembokAntarKelas3" type="MeshInstance3D" parent="World/BangunanSekolah/Kelas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.982, 2, 13.9318)
+mesh = SubResource("BoxMesh_bnvos")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BangunanSekolah/Kelas/TembokAntarKelas3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BangunanSekolah/Kelas/TembokAntarKelas3/StaticBody3D"]
+shape = SubResource("BoxShape3D_sepfj")
+
+[node name="Atap" type="MeshInstance3D" parent="World/BangunanSekolah"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.003, 3.572, 5.036)
+mesh = SubResource("BoxMesh_3b7fu")
+
+[node name="AtapMiring1" type="MeshInstance3D" parent="World/BangunanSekolah/Atap"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -2.48684, 1.43696, 0)
+mesh = SubResource("BoxMesh_epvcm")
+
+[node name="AtapMiring2" type="MeshInstance3D" parent="World/BangunanSekolah/Atap"]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 4.01683, 1.437, 0)
+mesh = SubResource("BoxMesh_sepfj")
+
+[node name="Gerbang" type="MeshInstance3D" parent="World"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Gerbang"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, -4.94534)
+mesh = SubResource("BoxMesh_nib4y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Gerbang/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Gerbang/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11969, 0)
+shape = SubResource("BoxShape3D_yrwm8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="World/Gerbang"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 5)
+mesh = SubResource("BoxMesh_nib4y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Gerbang/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Gerbang/MeshInstance3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11969, 0)
+shape = SubResource("BoxShape3D_yrwm8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="World/Gerbang"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.5, 5)
+mesh = SubResource("BoxMesh_nib4y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Gerbang/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Gerbang/MeshInstance3D3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11969, 0)
+shape = SubResource("BoxShape3D_yrwm8")
+
+[node name="Tanah" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+mesh = SubResource("PlaneMesh_5gwjy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Tanah"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Tanah/StaticBody3D"]
+shape = SubResource("BoxShape3D_3b7fu")
+
+[node name="IsiKelas" type="Node3D" parent="World"]
+
+[node name="blackboardbig2" parent="World/IsiKelas" instance=ExtResource("7_yrwm8")]
+transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 6.00121, 1.8038, -4.818)
+
+[node name="BangkuKursi" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 2.52039)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi2" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35419, 0, 2.52039)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi2" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi2" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi2" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi3" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42605, 0, 2.52039)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi3" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi3" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi3" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi4" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 3.78683)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi4" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi4" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi4" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi5" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35419, 0, 3.78683)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi5" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi5" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi5" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi6" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42605, 0, 3.78683)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi6" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi6" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi6" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi7" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 5.11563)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi7" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi7" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi7" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi8" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35419, 0, 5.11563)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi8" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi8" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi8" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi9" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42605, 0, 5.11563)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi9" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi9" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi9" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi10" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 6.41569)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi10" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi10" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi10" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi11" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35419, 0, 6.41569)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi11" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi11" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi11" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="BangkuKursi12" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42605, 0, 6.41569)
+
+[node name="chair3" parent="World/IsiKelas/BangkuKursi12" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.3384, 0.191441, -2.60111)
+
+[node name="chair4" parent="World/IsiKelas/BangkuKursi12" instance=ExtResource("8_bjxra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83682, 0.191441, -2.60111)
+
+[node name="table2" parent="World/IsiKelas/BangkuKursi12" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.59534, 0.69003, -3.05791)
+
+[node name="LantaiTinggi" type="MeshInstance3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03047, 0.24703, -4.24962)
+mesh = SubResource("BoxMesh_cws23")
+
+[node name="LantaiTinggi1" type="MeshInstance3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03, 0, -3.502)
+mesh = SubResource("BoxMesh_gqdwo")
+
+[node name="BangkuGuru" type="Node3D" parent="World/IsiKelas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.357337)
+
+[node name="table3" parent="World/IsiKelas/BangkuGuru" instance=ExtResource("8_pp6hd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.025, 0.69, -1.733)
+
+[node name="chair5" parent="World/IsiKelas/BangkuGuru" instance=ExtResource("8_bjxra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.04854, 0.191441, -2.31212)
+
+[node name="watch2" parent="World/IsiKelas" instance=ExtResource("10_nrevd")]
+transform = Transform3D(-1.1, -9.61651e-08, 4.20351e-15, 0, -4.80825e-08, -1.1, 9.61651e-08, -1.1, 4.80825e-08, 5.85943, 3.17117, -4.85544)
+
+[node name="shelf2" parent="World/IsiKelas" instance=ExtResource("11_kkca3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.73435, 0.841155, 4.15124)
+visible = false
+
+[node name="chalkboard_sponge_" parent="World/IsiKelas" instance=ExtResource("12_046tm")]
+transform = Transform3D(0.201656, -0.432453, 0.878817, -0.906308, -0.422618, 0, 0.371404, -0.796479, -0.477159, 2.98362, 1.04189, -4.66497)
+
+[node name="chalk2" parent="World/IsiKelas" instance=ExtResource("13_a5wm3")]
+transform = Transform3D(1.1, 0, 0, 0, 0.932853, 0.582911, 0, -0.582911, 0.932853, 3.09977, 0.984601, -4.70145)
+
+[node name="shelf_0012" parent="World/IsiKelas" instance=ExtResource("14_jkujp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.71333, 1.02498, 2.6647)
+
+[node name="shelf3" parent="World/IsiKelas" instance=ExtResource("11_kkca3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.64011, 0.856536, -1.8878)
+
+[node name="book2" parent="World/IsiKelas" instance=ExtResource("15_325q7")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.37964, 0.824493, -1.91871)
+
+[node name="book3" parent="World/IsiKelas" instance=ExtResource("15_325q7")]
+transform = Transform3D(0.951057, -0.309017, 1.35076e-08, 0, -4.37114e-08, -1, 0.309017, 0.951057, -4.1572e-08, 8.37964, 0.915688, -1.91871)
+
+[node name="book_0012" parent="World/IsiKelas" instance=ExtResource("16_dmgh1")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.38, 0.868891, -1.919)
+
+[node name="book_" parent="World/IsiKelas" instance=ExtResource("17_0tmpm")]
+transform = Transform3D(0.978148, 0.207912, -9.08811e-09, 0, -4.37114e-08, -1, -0.207912, 0.978148, -4.27562e-08, 8.38, 0.961805, -1.919)
+
+[node name="ColliisonBangku" type="Node3D" parent="World/IsiKelas"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/IsiKelas/ColliisonBangku"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 2.52039)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/IsiKelas/ColliisonBangku/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59347, 0.441596, -0.932602)
+shape = SubResource("BoxShape3D_nrevd")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="World/IsiKelas/ColliisonBangku"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 2.52039)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/IsiKelas/ColliisonBangku/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61901, 0.441596, -0.932602)
+shape = SubResource("BoxShape3D_nrevd")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="World/IsiKelas/ColliisonBangku"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67039, 0, 2.52039)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/IsiKelas/ColliisonBangku/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69575, 0.441596, -0.932602)
+shape = SubResource("BoxShape3D_nrevd")
+
+[node name="Player" parent="." instance=ExtResource("4_yrwm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.725, 0.038, -3.98)
