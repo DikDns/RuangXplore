@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtyp655ubtmwh"]
+
+[ext_resource type="PackedScene" uid="uid://d225kq8qw16ch" path="res://Assets/Boss 1/Models/Monster/cuboid_monster.glb" id="1_dnjse"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bg6y"]
+size = Vector3(6, 3.8, 3.3)
+
+[node name="cuboid monster" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.05)
+shape = SubResource("BoxShape3D_6bg6y")
+
+[node name="cuboid_monster" parent="." instance=ExtResource("1_dnjse")]

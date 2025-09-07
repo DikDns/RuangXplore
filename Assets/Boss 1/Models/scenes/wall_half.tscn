@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjrgrco22p83y"]
+
+[ext_resource type="PackedScene" uid="uid://cfi5pv4fegwuq" path="res://Assets/Boss 1/Models/building/wall_half_endcap.glb" id="1_sdxvv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oox0m"]
+size = Vector3(2, 4, 1)
+
+[node name="Wall half" type="StaticBody3D"]
+
+[node name="wall_half_endcap2" parent="." instance=ExtResource("1_sdxvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_oox0m")

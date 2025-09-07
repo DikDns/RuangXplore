@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cli3nhjaj6tp"]
+
+[ext_resource type="PackedScene" uid="uid://cxwq8xpxp5knl" path="res://Assets/Battle Scene/stairs-corner.glb" id="1_mf08e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4f2ux"]
+size = Vector3(0.99, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmmtd"]
+size = Vector3(0.67, 0.18, 0.67)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stpgh"]
+size = Vector3(0.33, 0.2, 0.33)
+
+[node name="Terrain 2" type="StaticBody3D"]
+
+[node name="stairs-corner2" parent="." instance=ExtResource("1_mf08e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47035e-08, 0.1, 0.00499998)
+shape = SubResource("BoxShape3D_4f2ux")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165, 0.25, -0.165)
+shape = SubResource("BoxShape3D_bmmtd")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335, 0.42, -0.335)
+shape = SubResource("BoxShape3D_stpgh")

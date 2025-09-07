@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0k5va0xy3qch"]
+
+[ext_resource type="PackedScene" uid="uid://d2ga36pymgl62" path="res://Assets/Boss 1/Models/Nature/cliff_block_rock.glb" id="1_7bd62"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3npm"]
+size = Vector3(4, 3.94, 4)
+
+[node name="Grass" type="StaticBody3D"]
+
+[node name="cliff_block_rock2" parent="." instance=ExtResource("1_7bd62")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82302, 0)
+shape = SubResource("BoxShape3D_k3npm")

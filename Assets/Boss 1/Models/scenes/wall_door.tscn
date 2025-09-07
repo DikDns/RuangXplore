@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://7r858hult1ni"]
+
+[ext_resource type="PackedScene" uid="uid://bltc6552hsp3" path="res://Assets/Boss 1/Models/building/wall_doorway.glb" id="1_a2u4k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1oho7"]
+size = Vector3(1, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2u4k"]
+size = Vector3(0.4, 2.7, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pep5p"]
+size = Vector3(4, 1.2, 1)
+
+[node name="wall door" type="StaticBody3D"]
+
+[node name="wall_doorway2" parent="." instance=ExtResource("1_a2u4k")]
+
+[node name="wall_doorway_door" parent="wall_doorway2/wall_doorway" index="0"]
+transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -0.820099, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+shape = SubResource("BoxShape3D_1oho7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.766045, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766045, -0.332139, 1.35, -0.611698)
+shape = SubResource("BoxShape3D_a2u4k")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+shape = SubResource("BoxShape3D_1oho7")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+shape = SubResource("BoxShape3D_pep5p")
+
+[editable path="wall_doorway2"]

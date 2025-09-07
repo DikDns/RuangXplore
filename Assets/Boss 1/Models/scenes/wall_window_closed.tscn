@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgjsj7lypddo0"]
+
+[ext_resource type="PackedScene" uid="uid://dvpu7rya4ijhv" path="res://Assets/Boss 1/Models/building/wall_window_closed.glb" id="1_n2046"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlvkp"]
+size = Vector3(4, 4, 1)
+
+[node name="wall window closed" type="StaticBody3D"]
+
+[node name="wall_window_closed2" parent="." instance=ExtResource("1_n2046")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99403, 0)
+shape = SubResource("BoxShape3D_tlvkp")

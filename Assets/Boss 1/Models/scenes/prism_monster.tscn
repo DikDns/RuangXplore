@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhtj10rdng0m1"]
+
+[ext_resource type="PackedScene" uid="uid://dfvetw6lmopxf" path="res://Assets/Boss 1/Models/Monster/Prism Monster.glb" id="1_j0182"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo13x"]
+size = Vector3(7.7, 5.5, 4.6)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+metadata/_edit_group_ = true
+
+[node name="Prism Monster" parent="." instance=ExtResource("1_j0182")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_fo13x")
