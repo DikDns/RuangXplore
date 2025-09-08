@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ff66ggbbwh6d"]
+
+[ext_resource type="Texture2D" uid="uid://ctfg7h7c2i8hb" path="res://Assets/Boss 1/Models/building/colormap.png" id="1_5308q"]
+
+[resource]
+albedo_texture = ExtResource("1_5308q")

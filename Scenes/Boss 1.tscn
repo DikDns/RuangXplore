@@ -25,13 +25,13 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njgtt"]
 panorama = ExtResource("1_fjcg3")
 
-[sub_resource type="Sky" id="Sky_fjcg3"]
+[sub_resource type="Sky" id="Sky_owq3b"]
 sky_material = SubResource("PanoramaSkyMaterial_njgtt")
 
 [sub_resource type="Environment" id="Environment_d6sgd"]
 background_mode = 2
 background_energy_multiplier = 0.3
-sky = SubResource("Sky_fjcg3")
+sky = SubResource("Sky_owq3b")
 tonemap_mode = 2
 glow_enabled = true
 
