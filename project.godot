@@ -14,6 +14,10 @@ config/name="RuangXplore"
 run/main_scene="uid://r7if1uc6ijcj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+BattleManager="*res://Scripts/BattleManager.gd"
+
 [display]
 
 window/size/mode=2

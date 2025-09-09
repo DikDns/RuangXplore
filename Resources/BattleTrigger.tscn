@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn0ji67fdattp"]
+
+[ext_resource type="Script" uid="uid://ba0xtotsfyk23" path="res://Scripts/BattleTrigger.gd" id="1_0ip6m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_soyes"]
+radius = 1.03369
+
+[node name="BattleTrigger" type="Area3D"]
+script = ExtResource("1_0ip6m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_soyes")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ConfirmationUI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -96.5
+offset_right = 153.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ConfirmationUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ConfirmationUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -58.5
+offset_right = 126.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lawan Boss?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ConfirmationUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -56.5
+offset_right = 130.0
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="YesButton" type="Button" parent="CanvasLayer/ConfirmationUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Iya"
+
+[node name="NoButton" type="Button" parent="CanvasLayer/ConfirmationUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tidak"
