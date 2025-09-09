@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RuangXplore"
-run/main_scene="uid://ba68vibf2r4ks"
+run/main_scene="uid://r7if1uc6ijcj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [display]

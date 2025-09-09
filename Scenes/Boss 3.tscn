@@ -1190,7 +1190,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2, 0.2, -7.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9, 0.2, 5.7)
 
 [node name="Ceiling" type="Node3D" parent="."]
-visible = false
 
 [node name="Ceiling" parent="Ceiling" instance=ExtResource("18_pk2g1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 6.8, 0.83)
