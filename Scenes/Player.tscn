@@ -2802,7 +2802,7 @@ states/walk/position = Vector2(474, 106)
 transitions = ["walk", "sprint", SubResource("AnimationNodeStateMachineTransition_a64qo"), "sprint", "walk", SubResource("AnimationNodeStateMachineTransition_vc2sq"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_2r3ok"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_wyw6w"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fyihs"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_ntpuk"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_bl4j5"), "sprint", "jump", SubResource("AnimationNodeStateMachineTransition_n44ef"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_uq0ke"), "jump", "sprint", SubResource("AnimationNodeStateMachineTransition_dydnx"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_51u1n")]
 graph_offset = Vector2(-137, -38)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_r5af8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -2840,28 +2840,28 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.44382e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(-0.0119803, 0, 0, 0.999928)
+bones/3/rotation = Quaternion(0.0150751, 0, 0, 0.999886)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998968, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.0998968, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.36564, 0.930756)
+bones/4/rotation = Quaternion(0, 0, -0.35824, 0.933629)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0998968, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.0998968, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.36564, 0.930756)
+bones/5/rotation = Quaternion(0, 0, 0.35824, 0.933629)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81969e-09, 0.167, 0.0263888)
 bones/6/enabled = true
 bones/6/position = Vector3(1.81969e-09, 0.167, 0.0263888)
-bones/6/rotation = Quaternion(0, 0.0119803, 0, 0.999928)
+bones/6/rotation = Quaternion(0, -0.0150751, 0, 0.999886)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="body-mesh" type="MeshInstance3D" parent="character-female-b2/character-female-b/Skeleton3D"]
@@ -2904,7 +2904,7 @@ shape = SubResource("SeparationRayShape3D_84uqy")
 spring_length = 2.0
 
 [node name="CameraMarker" type="Marker3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm"]
-transform = Transform3D(1, 7.74674e-08, 3.50875e-07, 1.25122e-08, 1.00001, 0.000270665, 2.14514e-07, 4.47035e-07, 1.00147, -1.33952e-09, -0.000113487, 1.99996)
+transform = Transform3D(1, 7.74674e-08, 3.50875e-07, 1.25122e-08, 1.00001, 0.000268877, 2.14514e-07, 4.47035e-07, 1.00147, -1.33952e-09, -0.000113487, 1.99996)
 
 [node name="PivotDebug" type="MeshInstance3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot"]
 mesh = SubResource("SphereMesh_ag7lb")

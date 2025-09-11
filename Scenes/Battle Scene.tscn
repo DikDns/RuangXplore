@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuf7wioov7e03"]
+[gd_scene load_steps=13 format=3 uid="uid://cuf7wioov7e03"]
 
+[ext_resource type="Script" uid="uid://djy6eu0c2indd" path="res://Scripts/BattleScene.gd" id="1_7v1va"]
 [ext_resource type="Texture2D" uid="uid://tvvna8whthsq" path="res://Assets/Battle Scene/qwantani_moonrise_puresky_1k.hdr" id="1_56vrm"]
 [ext_resource type="PackedScene" uid="uid://qejb33wywgxp" path="res://Assets/Battle Scene/Scene/floor.tscn" id="1_nf4fw"]
 [ext_resource type="PackedScene" uid="uid://bg3jgm8qftomi" path="res://Assets/Battle Scene/Scene/wall_corner.tscn" id="2_p7iyr"]
 [ext_resource type="PackedScene" uid="uid://g14gqpbjqtc1" path="res://Assets/Battle Scene/Scene/wall.tscn" id="3_e0evp"]
 [ext_resource type="PackedScene" uid="uid://cli3nhjaj6tp" path="res://Assets/Battle Scene/Scene/terrain_2.tscn" id="4_e0evp"]
 [ext_resource type="PackedScene" uid="uid://cu83pf7mw4iby" path="res://Assets/Battle Scene/Scene/statue.tscn" id="5_56vrm"]
-[ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://Scenes/Player.tscn" id="7_wch30"]
 [ext_resource type="PackedScene" uid="uid://btyq570gg58wb" path="res://Assets/Battle Scene/Scene/statue mirror.tscn" id="8_7v1va"]
+[ext_resource type="PackedScene" uid="uid://ds12ytbkefpl8" path="res://Assets/Battle Scene/Scene/BattleUI.tscn" id="9_2knu1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wch30"]
 panorama = ExtResource("1_56vrm")
@@ -27,7 +28,8 @@ fog_light_color = Color(0.681794, 0.504504, 0.418992, 1)
 fog_light_energy = 2.0
 fog_density = 1.0
 
-[node name="Node3D" type="Node3D"]
+[node name="BattleScene" type="Node3D"]
+script = ExtResource("1_7v1va")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.841511, 0.408959, -0.353004, 0, 0.653421, 0.756995, 0.54024, -0.63702, 0.54986, 0, 0, 0)
@@ -35,10 +37,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2knu1")
-
-[node name="Player" parent="." instance=ExtResource("7_wch30")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 1.30001, -3.57628e-07)
-visible = false
 
 [node name="Floor10" type="Node3D" parent="."]
 
@@ -401,3 +399,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.5, -2.3)
 
 [node name="Statue2" parent="." instance=ExtResource("8_7v1va")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.8, 0.5, 2.1)
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.52575, 1.60088, -0.116268)
+
+[node name="EnemySpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.27686, 1.60088, -0.116268)
+
+[node name="BattleCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.38249, 0, -0.92396, 0, 1, 0, 0.92396, 0, 0.38249, -2.15873, 0.87146, 0.291044)
+
+[node name="BattleUI" parent="." instance=ExtResource("9_2knu1")]

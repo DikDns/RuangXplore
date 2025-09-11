@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ba68vibf2r4ks"]
+[gd_scene load_steps=26 format=3 uid="uid://ba68vibf2r4ks"]
 
 [ext_resource type="Texture2D" uid="uid://dcmlbleg26ix5" path="res://Assets/Boss 1/qwantani_moonrise_puresky_1k.hdr" id="1_fjcg3"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://Scenes/Player.tscn" id="1_u1qbg"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ppkpua12oi" path="res://Assets/Boss 1/Models/scenes/torch_wall.tscn" id="20_n4qmj"]
 [ext_resource type="PackedScene" uid="uid://bgjsj7lypddo0" path="res://Assets/Boss 1/Models/scenes/wall_window_closed.tscn" id="21_fjcg3"]
 [ext_resource type="PackedScene" uid="uid://csbegeauh4khk" path="res://Assets/Boss 1/Models/scenes/cube_monster.tscn" id="21_njgtt"]
+[ext_resource type="PackedScene" uid="uid://bn0ji67fdattp" path="res://Resources/BattleTrigger.tscn" id="21_owq3b"]
 [ext_resource type="PackedScene" uid="uid://cjrgrco22p83y" path="res://Assets/Boss 1/Models/scenes/wall_half.tscn" id="22_njgtt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njgtt"]
@@ -1265,6 +1266,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 
 
 [node name="Wall half2" parent="." instance=ExtResource("22_njgtt")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -23)
+
+[node name="BattleTrigger" parent="." instance=ExtResource("21_owq3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93946, 1.02861, -12.679)
+enemy_scene = ExtResource("21_njgtt")
+enemy_id = "monster_kubus"
 
 [node name="Cube Monster" parent="." instance=ExtResource("21_njgtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.6, -17.6)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn0ji67fdattp"]
+[gd_scene load_steps=4 format=3 uid="uid://bn0ji67fdattp"]
 
 [ext_resource type="Script" uid="uid://ba0xtotsfyk23" path="res://Scripts/BattleTrigger.gd" id="1_0ip6m"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_soyes"]
-radius = 1.03369
+radius = 3.52441
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0ip6m"]
 
 [node name="BattleTrigger" type="Area3D"]
 script = ExtResource("1_0ip6m")
@@ -14,7 +16,6 @@ shape = SubResource("CylinderShape3D_soyes")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ConfirmationUI" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,7 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/ConfirmationUI"]
+[node name="Label" type="Label" parent="CanvasLayer/ConfirmationUI/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +54,7 @@ text = "Lawan Boss?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ConfirmationUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ConfirmationUI/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -67,12 +68,17 @@ offset_bottom = -16.5
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="YesButton" type="Button" parent="CanvasLayer/ConfirmationUI/HBoxContainer"]
+[node name="YesButton" type="Button" parent="CanvasLayer/ConfirmationUI/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Iya"
 
-[node name="NoButton" type="Button" parent="CanvasLayer/ConfirmationUI/HBoxContainer"]
+[node name="NoButton" type="Button" parent="CanvasLayer/ConfirmationUI/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Tidak"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.19325, 0, 0, 0, 1, 0, 0, 0, 6.96116, 0, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_0ip6m")

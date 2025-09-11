@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://csbegeauh4khk"]
+[gd_scene load_steps=7 format=3 uid="uid://csbegeauh4khk"]
 
 [ext_resource type="PackedScene" uid="uid://p4jlph245isd" path="res://Assets/Boss 1/Models/cube_monster_no_base.glb" id="1_b5qmi"]
+[ext_resource type="Script" uid="uid://bis228dy0j75n" path="res://Scripts/Enemy.gd" id="1_py5it"]
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="2_cvrxl"]
+[ext_resource type="Resource" uid="uid://cgeil0ws1q36m" path="res://Resources/Questions/SoalKubus1.tres" id="3_ptjcp"]
+[ext_resource type="Resource" uid="uid://gsdj603uxg4k" path="res://Resources/Questions/SoalKubus2.tres" id="4_kg7xh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_py5it"]
 size = Vector3(3.1, 3.8, 3.1)
 
-[node name="Cube Monster" type="StaticBody3D"]
+[node name="Cube Monster" type="CharacterBody3D"]
+script = ExtResource("1_py5it")
+enemy_id = "monster_kubus"
+questions = Array[ExtResource("2_cvrxl")]([ExtResource("3_ptjcp"), ExtResource("4_kg7xh")])
 
 [node name="cube_monster_no_base" parent="." instance=ExtResource("1_b5qmi")]
 
