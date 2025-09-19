@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://8wu041v2586u"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_hvjde"]
+
+[resource]
+script = ExtResource("1_hvjde")
+question_text = "Jika luas alas prisma segitiga adalah 10 cm² dan tingginya 5 cm, berapa volumenya?"
+answers = Array[String](["15 cm³", "25 cm³", "50 cm³", "100 cm³"])
+correct_answer_index = 2
+metadata/_custom_type_script = "uid://be7varhtyfh82"

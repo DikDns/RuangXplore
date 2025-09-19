@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://kwtanjpyj7be"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_8ki54"]
+
+[resource]
+script = ExtResource("1_8ki54")
+question_text = "Rumus untuk menghitung luas permukaan kubus adalah..."
+answers = Array[String](["6 x Sisi", "Sisi x Sisi", "6 x (Sisi x Sisi)", "12 x Sisi"])
+correct_answer_index = 2
+metadata/_custom_type_script = "uid://be7varhtyfh82"

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_owp0h")
-question_text = "Apakah a sama dengan b?"
-answers = Array[String](["ya", "tidak", "mungkin", "bisa jadi"])
+question_text = "Semua sisi pada kubus berbentuk..."
+answers = Array[String](["Persegi Panjang", "Lingkaran", "Persegi", "Segitiga"])
 correct_answer_index = 2
 metadata/_custom_type_script = "uid://be7varhtyfh82"

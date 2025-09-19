@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://d184ocg2vqnbr"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_7lkou"]
+
+[resource]
+script = ExtResource("1_7lkou")
+question_text = "Benda di bawah ini yang paling mirip dengan bentuk prisma segitiga adalah..."
+answers = Array[String](["Atap rumah", "Piramida", "Kulkas", "Roda"])
+correct_answer_index = 0
+metadata/_custom_type_script = "uid://be7varhtyfh82"

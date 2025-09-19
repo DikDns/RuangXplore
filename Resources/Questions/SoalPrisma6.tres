@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://datj7otwotqv8"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_jasri"]
+
+[resource]
+script = ExtResource("1_jasri")
+question_text = "Rumus umum untuk menghitung volume prisma adalah..."
+answers = Array[String](["Luas Alas x Tinggi", "Panjang x Lebar", "1/3 x Luas Alas x Tinggi", "Sisi x Sisi x Sisi"])
+correct_answer_index = 0
+metadata/_custom_type_script = "uid://be7varhtyfh82"

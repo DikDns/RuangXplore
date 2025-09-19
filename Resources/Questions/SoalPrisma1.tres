@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://cm6bvs48fdsts"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_wpg31"]
+
+[resource]
+script = ExtResource("1_wpg31")
+question_text = "Berapa jumlah sisi yang dimiliki oleh sebuah kubus?"
+answers = Array[String]([" 4", "6", "8", "12"])
+correct_answer_index = 1
+metadata/_custom_type_script = "uid://be7varhtyfh82"

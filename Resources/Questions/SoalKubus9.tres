@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://cntit7n28r7lh"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_m3kfb"]
+
+[resource]
+script = ExtResource("1_m3kfb")
+question_text = "Benda di bawah ini yang paling mirip dengan bentuk kubus adalah..."
+answers = Array[String](["Bola basket", "Kelereng", "Dadu", "Kaleng susu"])
+correct_answer_index = 2
+metadata/_custom_type_script = "uid://be7varhtyfh82"

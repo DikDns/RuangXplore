@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ba68vibf2r4ks"]
+[gd_scene load_steps=37 format=3 uid="uid://ba68vibf2r4ks"]
 
 [ext_resource type="Texture2D" uid="uid://dcmlbleg26ix5" path="res://Assets/Boss 1/qwantani_moonrise_puresky_1k.hdr" id="1_fjcg3"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://Scenes/Player.tscn" id="1_u1qbg"]
@@ -22,6 +22,17 @@
 [ext_resource type="PackedScene" uid="uid://csbegeauh4khk" path="res://Assets/Boss 1/Models/scenes/cube_monster.tscn" id="21_njgtt"]
 [ext_resource type="PackedScene" uid="uid://bn0ji67fdattp" path="res://Resources/BattleTrigger.tscn" id="21_owq3b"]
 [ext_resource type="PackedScene" uid="uid://cjrgrco22p83y" path="res://Assets/Boss 1/Models/scenes/wall_half.tscn" id="22_njgtt"]
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="23_odpnr"]
+[ext_resource type="Resource" uid="uid://cgeil0ws1q36m" path="res://Resources/Questions/SoalKubus1.tres" id="24_mt8b6"]
+[ext_resource type="Resource" uid="uid://gsdj603uxg4k" path="res://Resources/Questions/SoalKubus2.tres" id="25_saldo"]
+[ext_resource type="Resource" uid="uid://bbxxxl0f0owog" path="res://Resources/Questions/SoalKubus3.tres" id="26_nw733"]
+[ext_resource type="Resource" uid="uid://cbpbs60sd7fki" path="res://Resources/Questions/SoalKubus4.tres" id="27_rb2sm"]
+[ext_resource type="Resource" uid="uid://wwvugfiy2x3l" path="res://Resources/Questions/SoalKubus5.tres" id="28_cytdg"]
+[ext_resource type="Resource" uid="uid://bler27xhj2snw" path="res://Resources/Questions/SoalKubus6.tres" id="29_ru3ra"]
+[ext_resource type="Resource" uid="uid://kwtanjpyj7be" path="res://Resources/Questions/SoalKubus7.tres" id="30_2lfso"]
+[ext_resource type="Resource" uid="uid://bu0pxl4pxdgm2" path="res://Resources/Questions/SoalKubus8.tres" id="31_dvdrd"]
+[ext_resource type="Resource" uid="uid://cntit7n28r7lh" path="res://Resources/Questions/SoalKubus9.tres" id="32_dav1c"]
+[ext_resource type="Resource" uid="uid://clcl3ww2sr8ex" path="res://Resources/Questions/SoalKubus10.tres" id="33_bj8r4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njgtt"]
 panorama = ExtResource("1_fjcg3")
@@ -1274,3 +1285,4 @@ enemy_id = "monster_kubus"
 
 [node name="Cube Monster" parent="." instance=ExtResource("21_njgtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.6, -17.6)
+questions = Array[ExtResource("23_odpnr")]([ExtResource("24_mt8b6"), ExtResource("25_saldo"), ExtResource("26_nw733"), ExtResource("27_rb2sm"), ExtResource("28_cytdg"), ExtResource("29_ru3ra"), ExtResource("30_2lfso"), ExtResource("31_dvdrd"), ExtResource("32_dav1c"), ExtResource("33_bj8r4")])

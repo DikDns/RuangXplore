@@ -401,12 +401,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.5, -2.3)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.8, 0.5, 2.1)
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.52575, 1.60088, -0.116268)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.001, 2, 2.12)
 
 [node name="EnemySpawnPoint" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.27686, 1.60088, -0.116268)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.003, 2, -2.273)
 
 [node name="BattleCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.38249, 0, -0.92396, 0, 1, 0, 0.92396, 0, 0.38249, -2.15873, 0.87146, 0.291044)
+transform = Transform3D(0.862478, 0, 0.506094, 0, 1, 0, -0.506094, 0, 0.862478, 0.775469, 1.5327, 2.63878)
 
 [node name="BattleUI" parent="." instance=ExtResource("9_2knu1")]

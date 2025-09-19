@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvh7hvqrropl0"]
+
+[ext_resource type="Script" uid="uid://dejay50kb0m48" path="res://Scripts/fireball.gd" id="1_c05ox"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o53bx"]
+albedo_color = Color(1, 0.666667, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.666667, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dju2h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffurd"]
+
+[node name="Fireball" type="Area3D"]
+script = ExtResource("1_c05ox")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_o53bx")
+mesh = SubResource("BoxMesh_dju2h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ffurd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
