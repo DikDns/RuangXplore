@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://icdrilsphxiq"]
+[gd_scene load_steps=6 format=3 uid="uid://icdrilsphxiq"]
 
-[ext_resource type="Texture2D" uid="uid://crace8rlna6yq" path="res://Assets/mock-button.png" id="2_itjh5"]
+[ext_resource type="Texture2D" uid="uid://y8bw4gf4f0xt" path="res://Assets/Button Lari.png" id="1_afo77"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="2_so135"]
+[ext_resource type="Texture2D" uid="uid://c7lgtpqsc4ei1" path="res://Assets/Button Interact.png" id="3_8klrj"]
+[ext_resource type="Texture2D" uid="uid://bcgwydnrcpttw" path="res://Assets/Button Lompat.png" id="4_sjvlj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itjh5"]
 
@@ -51,11 +53,11 @@ custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-texture_normal = ExtResource("2_itjh5")
-texture_pressed = ExtResource("2_itjh5")
-texture_hover = ExtResource("2_itjh5")
-texture_disabled = ExtResource("2_itjh5")
-texture_focused = ExtResource("2_itjh5")
+texture_normal = ExtResource("1_afo77")
+texture_pressed = ExtResource("1_afo77")
+texture_hover = ExtResource("1_afo77")
+texture_disabled = ExtResource("1_afo77")
+texture_focused = ExtResource("1_afo77")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -70,11 +72,11 @@ theme_override_constants/separation = 52
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_itjh5")
-texture_pressed = ExtResource("2_itjh5")
-texture_hover = ExtResource("2_itjh5")
-texture_disabled = ExtResource("2_itjh5")
-texture_focused = ExtResource("2_itjh5")
+texture_normal = ExtResource("3_8klrj")
+texture_pressed = ExtResource("3_8klrj")
+texture_hover = ExtResource("3_8klrj")
+texture_disabled = ExtResource("3_8klrj")
+texture_focused = ExtResource("3_8klrj")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -82,11 +84,11 @@ stretch_mode = 5
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_itjh5")
-texture_pressed = ExtResource("2_itjh5")
-texture_hover = ExtResource("2_itjh5")
-texture_disabled = ExtResource("2_itjh5")
-texture_focused = ExtResource("2_itjh5")
+texture_normal = ExtResource("4_sjvlj")
+texture_pressed = ExtResource("4_sjvlj")
+texture_hover = ExtResource("4_sjvlj")
+texture_disabled = ExtResource("4_sjvlj")
+texture_focused = ExtResource("4_sjvlj")
 ignore_texture_size = true
 stretch_mode = 5
 

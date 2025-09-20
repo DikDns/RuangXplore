@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjybus4lhvsqf"
 path.s3tc="res://.godot/imported/curtains_ImphenziaPalette01-256-Gradient.png-1b5197868d6e04df98913c04ec6d1a97.s3tc.ctex"
+path.etc2="res://.godot/imported/curtains_ImphenziaPalette01-256-Gradient.png-1b5197868d6e04df98913c04ec6d1a97.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Classroom/curtains_ImphenziaPalette01-256-Gradient.png"
-dest_files=["res://.godot/imported/curtains_ImphenziaPalette01-256-Gradient.png-1b5197868d6e04df98913c04ec6d1a97.s3tc.ctex"]
+dest_files=["res://.godot/imported/curtains_ImphenziaPalette01-256-Gradient.png-1b5197868d6e04df98913c04ec6d1a97.s3tc.ctex", "res://.godot/imported/curtains_ImphenziaPalette01-256-Gradient.png-1b5197868d6e04df98913c04ec6d1a97.etc2.ctex"]
 
 [params]
 

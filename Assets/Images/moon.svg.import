@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv88nxw1ykg2w"
 path.s3tc="res://.godot/imported/moon.svg-7c309f87d605e4825f6c2b2483a5e7ee.s3tc.ctex"
+path.etc2="res://.godot/imported/moon.svg-7c309f87d605e4825f6c2b2483a5e7ee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Images/moon.svg"
-dest_files=["res://.godot/imported/moon.svg-7c309f87d605e4825f6c2b2483a5e7ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/moon.svg-7c309f87d605e4825f6c2b2483a5e7ee.s3tc.ctex", "res://.godot/imported/moon.svg-7c309f87d605e4825f6c2b2483a5e7ee.etc2.ctex"]
 
 [params]
 

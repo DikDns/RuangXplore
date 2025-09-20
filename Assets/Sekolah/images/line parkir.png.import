@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c66ib8e63qi40"
 path.s3tc="res://.godot/imported/line parkir.png-f78a5688e06dafa140b280c9e3123c8f.s3tc.ctex"
+path.etc2="res://.godot/imported/line parkir.png-f78a5688e06dafa140b280c9e3123c8f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sekolah/images/line parkir.png"
-dest_files=["res://.godot/imported/line parkir.png-f78a5688e06dafa140b280c9e3123c8f.s3tc.ctex"]
+dest_files=["res://.godot/imported/line parkir.png-f78a5688e06dafa140b280c9e3123c8f.s3tc.ctex", "res://.godot/imported/line parkir.png-f78a5688e06dafa140b280c9e3123c8f.etc2.ctex"]
 
 [params]
 

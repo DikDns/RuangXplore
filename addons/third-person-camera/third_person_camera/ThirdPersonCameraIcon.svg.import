@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgbqe4e8m5dlo"
 path.s3tc="res://.godot/imported/ThirdPersonCameraIcon.svg-895880fcccc5c0191c5c521669ff32ad.s3tc.ctex"
+path.etc2="res://.godot/imported/ThirdPersonCameraIcon.svg-895880fcccc5c0191c5c521669ff32ad.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/third-person-camera/third_person_camera/ThirdPersonCameraIcon.svg"
-dest_files=["res://.godot/imported/ThirdPersonCameraIcon.svg-895880fcccc5c0191c5c521669ff32ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/ThirdPersonCameraIcon.svg-895880fcccc5c0191c5c521669ff32ad.s3tc.ctex", "res://.godot/imported/ThirdPersonCameraIcon.svg-895880fcccc5c0191c5c521669ff32ad.etc2.ctex"]
 
 [params]
 

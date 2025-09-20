@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd1mxiukghrow"
 path.s3tc="res://.godot/imported/laminate_floor_02_diff_4k.jpg-0aa278f46013dc2c21924484bc84da50.s3tc.ctex"
+path.etc2="res://.godot/imported/laminate_floor_02_diff_4k.jpg-0aa278f46013dc2c21924484bc84da50.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Images/laminate_floor_02_diff_4k.jpg"
-dest_files=["res://.godot/imported/laminate_floor_02_diff_4k.jpg-0aa278f46013dc2c21924484bc84da50.s3tc.ctex"]
+dest_files=["res://.godot/imported/laminate_floor_02_diff_4k.jpg-0aa278f46013dc2c21924484bc84da50.s3tc.ctex", "res://.godot/imported/laminate_floor_02_diff_4k.jpg-0aa278f46013dc2c21924484bc84da50.etc2.ctex"]
 
 [params]
 

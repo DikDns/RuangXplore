@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7jng6wj52ay7"
 path.bptc="res://.godot/imported/snow_field_puresky_1k.hdr-0174a65d4f5ec6e21327ad95cc2242f1.bptc.ctex"
+path.astc="res://.godot/imported/snow_field_puresky_1k.hdr-0174a65d4f5ec6e21327ad95cc2242f1.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Boss 1/snow_field_puresky_1k.hdr"
-dest_files=["res://.godot/imported/snow_field_puresky_1k.hdr-0174a65d4f5ec6e21327ad95cc2242f1.bptc.ctex"]
+dest_files=["res://.godot/imported/snow_field_puresky_1k.hdr-0174a65d4f5ec6e21327ad95cc2242f1.bptc.ctex", "res://.godot/imported/snow_field_puresky_1k.hdr-0174a65d4f5ec6e21327ad95cc2242f1.astc.ctex"]
 
 [params]
 

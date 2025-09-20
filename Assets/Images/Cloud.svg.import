@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl2wd5syuu8sc"
 path.s3tc="res://.godot/imported/Cloud.svg-7d32844731a0f747b0a07aae1746347e.s3tc.ctex"
+path.etc2="res://.godot/imported/Cloud.svg-7d32844731a0f747b0a07aae1746347e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Images/Cloud.svg"
-dest_files=["res://.godot/imported/Cloud.svg-7d32844731a0f747b0a07aae1746347e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cloud.svg-7d32844731a0f747b0a07aae1746347e.s3tc.ctex", "res://.godot/imported/Cloud.svg-7d32844731a0f747b0a07aae1746347e.etc2.ctex"]
 
 [params]
 

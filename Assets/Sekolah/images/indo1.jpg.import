@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ibcasbf2qlgw"
 path.s3tc="res://.godot/imported/indo1.jpg-f456949f1155bfb6f42e1f9a17dbfd67.s3tc.ctex"
+path.etc2="res://.godot/imported/indo1.jpg-f456949f1155bfb6f42e1f9a17dbfd67.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Sekolah/images/indo1.jpg"
-dest_files=["res://.godot/imported/indo1.jpg-f456949f1155bfb6f42e1f9a17dbfd67.s3tc.ctex"]
+dest_files=["res://.godot/imported/indo1.jpg-f456949f1155bfb6f42e1f9a17dbfd67.s3tc.ctex", "res://.godot/imported/indo1.jpg-f456949f1155bfb6f42e1f9a17dbfd67.etc2.ctex"]
 
 [params]
 

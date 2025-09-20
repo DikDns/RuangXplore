@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccj0phqw6lvfv"
 path.s3tc="res://.godot/imported/chest_texture.png-6107745b378cc88ef851fae2b0180ccb.s3tc.ctex"
+path.etc2="res://.godot/imported/chest_texture.png-6107745b378cc88ef851fae2b0180ccb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Boss 1/Models/chest_gold/chest_texture.png"
-dest_files=["res://.godot/imported/chest_texture.png-6107745b378cc88ef851fae2b0180ccb.s3tc.ctex"]
+dest_files=["res://.godot/imported/chest_texture.png-6107745b378cc88ef851fae2b0180ccb.s3tc.ctex", "res://.godot/imported/chest_texture.png-6107745b378cc88ef851fae2b0180ccb.etc2.ctex"]
 
 [params]
 
