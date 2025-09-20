@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://doh0w0if3r85g"]
+[gd_scene load_steps=69 format=4 uid="uid://doh0w0if3r85g"]
 
 [ext_resource type="Script" uid="uid://dplbx1q6ae66b" path="res://Scripts/Player.gd" id="1_r5af8"]
 [ext_resource type="Texture2D" uid="uid://b30jm72p827ls" path="res://Assets/GLB format/Textures/colormap.png" id="2_vcfmy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://8wq0le7mywh4" path="res://addons/third-person-camera/third_person_camera/camera-shake-presets/DefaultCameraShakePreset.tres" id="4_i33le"]
 [ext_resource type="Resource" uid="uid://cn4iinuc23o7j" path="res://addons/third-person-camera/third_person_camera/camera-shake-presets/GentleSway.tres" id="5_43njg"]
 [ext_resource type="Script" uid="uid://bfbqj1if5qo6l" path="res://addons/third-person-camera/third_person_camera/CameraShake.gd" id="6_5jvsx"]
+[ext_resource type="PackedScene" uid="uid://icdrilsphxiq" path="res://Scenes/MobileUI.tscn" id="8_bhhdu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1fx63"]
 radius = 0.255
@@ -2852,28 +2853,28 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.44382e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(0.036135, 0, 0, 0.999347)
+bones/3/rotation = Quaternion(-0.026879, 0, 0, 0.999639)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998968, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.0998968, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.280457, 0.959867)
+bones/4/rotation = Quaternion(0, 0, -0.307012, 0.951706)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0998968, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.0998968, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.280457, 0.959867)
+bones/5/rotation = Quaternion(0, 0, 0.307012, 0.951706)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81969e-09, 0.167, 0.0263888)
 bones/6/enabled = true
 bones/6/position = Vector3(1.81969e-09, 0.167, 0.0263888)
-bones/6/rotation = Quaternion(0, -0.036135, 0, 0.999347)
+bones/6/rotation = Quaternion(0, 0.026879, 0, 0.999639)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="body-mesh" type="MeshInstance3D" parent="character-female-b2/character-female-b/Skeleton3D"]
@@ -2916,7 +2917,7 @@ shape = SubResource("SeparationRayShape3D_84uqy")
 spring_length = 2.0
 
 [node name="CameraMarker" type="Marker3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm"]
-transform = Transform3D(1, 7.74674e-08, 3.50875e-07, 1.25122e-08, 1.00001, 0.000263989, 2.14514e-07, 4.47035e-07, 1.00147, -1.33952e-09, -0.000113487, 1.99996)
+transform = Transform3D(1, 7.74674e-08, 3.50853e-07, 1.25122e-08, 1.00001, 0.000112712, 2.14514e-07, 4.47035e-07, 1.00147, -1.33952e-09, -0.000113487, 1.99996)
 
 [node name="PivotDebug" type="MeshInstance3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot"]
 mesh = SubResource("SphereMesh_ag7lb")
@@ -2949,3 +2950,5 @@ collision_mask = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/ActionableFinder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00776863, 0.339737, 0.424187)
 shape = SubResource("BoxShape3D_52ee3")
+
+[node name="MobileUI" parent="." instance=ExtResource("8_bhhdu")]
