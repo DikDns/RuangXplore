@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=4 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=162 format=4 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="PackedScene" uid="uid://dqysugaoxvhy6" path="res://Assets/Boss 1/Models/Sky.tscn" id="1_v1gob"]
 [ext_resource type="MeshLibrary" uid="uid://but41bw2tpntu" path="res://Resources/AssetForGridMap.tres" id="2_88fab"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4yr7naxw5mfe" path="res://Scenes/Dialogue/actionable.tscn" id="6_50glp"]
 [ext_resource type="Resource" uid="uid://wfxbnrhj2d1c" path="res://Dialogue/test.dialogue" id="7_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://b30jm72p827ls" path="res://Assets/GLB format/Textures/colormap.png" id="8_rs5we"]
+[ext_resource type="AudioStream" uid="uid://docwpwctdou6g" path="res://Assets/Audio/bgm/level2.mp3" id="9_vy5pj"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_13cnf"]
 
@@ -11303,3 +11304,7 @@ autoplay = "idle"
 
 [node name="Player" parent="." instance=ExtResource("2_g4gkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0381371, -10.4142)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vy5pj")
+autoplay = true
