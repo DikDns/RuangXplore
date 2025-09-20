@@ -6,9 +6,9 @@ class_name Portal
 @export var portal_name: String = "Lokasi Misterius"
 
 @onready var confirmation_ui = $ConfirmationUI
-@onready var info_label = $ConfirmationUI/PanelContainer/VBoxContainer/InfoLabel
-@onready var yes_button = $ConfirmationUI/PanelContainer/VBoxContainer/HBoxContainer/YesButton
-@onready var no_button = $ConfirmationUI/PanelContainer/VBoxContainer/HBoxContainer/NoButton
+@onready var info_label = $ConfirmationUI/PanelContainer/MarginContainer/VBoxContainer/InfoLabel
+@onready var yes_button = $ConfirmationUI/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/YesButton
+@onready var no_button = $ConfirmationUI/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/NoButton
 
 var player_in_area: Player = null
 
