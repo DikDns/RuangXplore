@@ -1,10 +1,12 @@
-[gd_scene load_steps=159 format=4 uid="uid://ga4brol6kes6"]
+[gd_scene load_steps=161 format=4 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="PackedScene" uid="uid://dqysugaoxvhy6" path="res://Assets/Boss 1/Models/Sky.tscn" id="1_v1gob"]
 [ext_resource type="MeshLibrary" uid="uid://but41bw2tpntu" path="res://Resources/AssetForGridMap.tres" id="2_88fab"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://Scenes/Player.tscn" id="2_g4gkr"]
 [ext_resource type="MeshLibrary" uid="uid://metaudkb8olc" path="res://Resources/EnvironmentGridMap.tres" id="3_6vqww"]
 [ext_resource type="MeshLibrary" uid="uid://dn1r3n4p65ifd" path="res://Resources/PropsGridMap.tres" id="4_qj8wj"]
+[ext_resource type="PackedScene" uid="uid://4yr7naxw5mfe" path="res://Scenes/Dialogue/actionable.tscn" id="6_50glp"]
+[ext_resource type="Resource" uid="uid://wfxbnrhj2d1c" path="res://Dialogue/test.dialogue" id="7_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://b30jm72p827ls" path="res://Assets/GLB format/Textures/colormap.png" id="8_rs5we"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_13cnf"]
@@ -2715,6 +2717,9 @@ _data = {
 &"wheelchair-move-right": SubResource("Animation_mis50"),
 &"wheelchair-sit": SubResource("Animation_5ify7")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmxlf"]
+size = Vector3(1, 0.570679, 0.662292)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nq5v"]
 resource_name = "colormap"
@@ -10820,8 +10825,6 @@ _data = {
 &"wheelchair-sit": SubResource("Animation_oq1ox")
 }
 
-[sub_resource type="BoxMesh" id="BoxMesh_50glp"]
-
 [node name="Main" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
@@ -11081,6 +11084,13 @@ libraries = {
 }
 autoplay = "sit"
 
+[node name="Actionable" parent="World/Characters/character-male-a2" instance=ExtResource("6_50glp")]
+dialogue_resources = ExtResource("7_vy5pj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Characters/character-male-a2/Actionable"]
+transform = Transform3D(1, 0, 2.68221e-07, 0, 1, 0, -2.68221e-07, 0, 1, -1.90735e-06, 0.239929, 0.345976)
+shape = SubResource("BoxShape3D_bmxlf")
+
 [node name="character-male-c2" type="Node3D" parent="World/Characters"]
 transform = Transform3D(0.719012, 0, -0.694997, 0, 1, 0, 0.694997, 0, 0.719012, -10.2641, 0.175727, -2.57368)
 
@@ -11293,7 +11303,3 @@ autoplay = "idle"
 
 [node name="Player" parent="." instance=ExtResource("2_g4gkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0381371, -10.4142)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.58, 0, 0, 0, 0.705, 0, 0, 0, 0.5, 0, 0.411979, -9.84086)
-mesh = SubResource("BoxMesh_50glp")

@@ -18,6 +18,7 @@ const gravity = 10
 @onready var camera = $ThirdPersonCamera/Camera
 @onready var tpc_node = $ThirdPersonCamera
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
+@onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
 var fireball_scene = preload("res://Scenes/Projectiles/Fireball.tscn")
 var is_jumping = false
@@ -29,6 +30,12 @@ func _ready():
 func _unhandled_input(event):
 	if is_in_battle:
 		return
+		
+	if Input.is_action_pressed("ui_accept") or (event is InputEventScreenTouch and event.is_pressed()):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.is_pressed():

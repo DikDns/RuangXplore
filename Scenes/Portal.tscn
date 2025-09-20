@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://betwb0io5sjxc"]
+
+[ext_resource type="Script" uid="uid://cuwyavsm5qbk5" path="res://Scripts/portal.gd" id="1_lvd5j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnmen"]
+size = Vector3(2, 3, 2)
+
+[sub_resource type="TorusMesh" id="TorusMesh_lvd5j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdgx6"]
+albedo_color = Color(0, 0.533333, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.533333, 1, 1)
+emission_energy_multiplier = 4.0
+
+[node name="Portal" type="Area3D"]
+script = ExtResource("1_lvd5j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tnmen")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1.5, 0, 1, -6.55671e-08, 0, 0.522135, 0)
+mesh = SubResource("TorusMesh_lvd5j")
+surface_material_override/0 = SubResource("StandardMaterial3D_mdgx6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="YesButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Iya"
+
+[node name="NoButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tidak"

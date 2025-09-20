@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 BattleManager="*res://Scripts/BattleManager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
@@ -26,7 +27,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/third-person-camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/third-person-camera/plugin.cfg")
 
 [global_group]
 
@@ -77,11 +78,16 @@ ui_sprint={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue/test.dialogue")
+
 [layer_names]
 
 3d_physics/layer_1="world"
 3d_physics/layer_2="player"
 3d_physics/layer_3="props"
+3d_physics/layer_5="actionables"
 
 [physics]
 
