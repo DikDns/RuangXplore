@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnq6dobo478rd"]
+
+[ext_resource type="Script" uid="uid://3uw70q0fvg1f" path="res://Scenes/main_menu.gd" id="1_ghw46"]
+[ext_resource type="Texture2D" uid="uid://3a5vucrqgjo6" path="res://Assets/UI/Button Mulai Baru.png" id="2_df05h"]
+[ext_resource type="Texture2D" uid="uid://bbnfsjoas4pjh" path="res://Assets/UI/Button Muat Data.png" id="3_8um5k"]
+[ext_resource type="Texture2D" uid="uid://c82qp8muq78gh" path="res://Assets/UI/Button Pengaturan.png" id="4_xim88"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 560.0
+offset_top = 291.0
+offset_right = 560.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ghw46")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -285.0
+offset_top = -223.0
+offset_right = 384.0
+offset_bottom = 291.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_df05h")
+
+[node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_8um5k")
+
+[node name="Pengaturan" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_xim88")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Pengaturan" to="." method="_on_pengaturan_pressed"]
