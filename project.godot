@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="RuangXplore"
-run/main_scene="uid://r7if1uc6ijcj"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://cnq6dobo478rd"
+config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
