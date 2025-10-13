@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://fmyi4g4nxb6a"]
+
+[ext_resource type="Texture2D" uid="uid://c6vqeagg431lk" path="res://Assets/UI/Logo.png" id="1_3u666"]
+[ext_resource type="Texture2D" uid="uid://dodqrchyw8bfy" path="res://Assets/UI/iPhone 13 mini - 1.png" id="1_ey7n4"]
+[ext_resource type="Texture2D" uid="uid://cb2xaarrqhg1e" path="res://Assets/UI/Button Main.png" id="1_usjih"]
+[ext_resource type="Texture2D" uid="uid://bbnfsjoas4pjh" path="res://Assets/UI/Button Muat Data.png" id="2_3u666"]
+[ext_resource type="Texture2D" uid="uid://3a5vucrqgjo6" path="res://Assets/UI/Button Mulai Baru.png" id="3_a2231"]
+[ext_resource type="Texture2D" uid="uid://ddb8pc0n7n7ab" path="res://Assets/UI/Button Power.png" id="5_a2231"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey7n4"]
+texture = ExtResource("1_usjih")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mw8b"]
+texture = ExtResource("2_3u666")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kehkj"]
+texture = ExtResource("3_a2231")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anxsw"]
+texture = ExtResource("5_a2231")
+region_rect = Rect2(380, 355, 319, 319)
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_ey7n4")
+
+[node name="Judul" type="MarginContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 70
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Judul"]
+layout_mode = 2
+texture = ExtResource("1_3u666")
+region_rect = Rect2(103, 370, 862, 432)
+
+[node name="BaseMenuScreen" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/BaseMenuScreen"]
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BaseMenuScreen/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 180
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BaseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Start" type="Button" parent="MarginContainer/BaseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_ey7n4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ey7n4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ey7n4")
+
+[node name="Muat Ulang" type="Button" parent="MarginContainer/BaseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_6mw8b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6mw8b")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6mw8b")
+
+[node name="Start3" type="Button" parent="MarginContainer/BaseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_kehkj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kehkj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kehkj")
+
+[node name="Quit" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Quit"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="MarginContainer/Quit/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_anxsw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_anxsw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_anxsw")
