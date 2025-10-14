@@ -52,9 +52,6 @@ func _ready():
 	if not OS.has_feature("mobile"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		tpc_node.set_process_unhandled_input(false)
-		
-	if is_in_battle:
-		mobile_ui.visible = false
 
 func _unhandled_input(event):
 	if is_in_battle: return

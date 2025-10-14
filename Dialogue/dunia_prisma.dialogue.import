@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dkwweuf3brfvo"
+path="res://.godot/imported/dunia_prisma.dialogue-1366b8472f19a8545d0a919e1844b759.tres"
+
+[deps]
+
+source_file="res://Dialogue/dunia_prisma.dialogue"
+dest_files=["res://.godot/imported/dunia_prisma.dialogue-1366b8472f19a8545d0a919e1844b759.tres"]
+
+[params]
+
+defaults=true

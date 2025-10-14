@@ -6,7 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://metaudkb8olc" path="res://Resources/EnvironmentGridMap.tres" id="3_6vqww"]
 [ext_resource type="MeshLibrary" uid="uid://dn1r3n4p65ifd" path="res://Resources/PropsGridMap.tres" id="4_qj8wj"]
 [ext_resource type="PackedScene" uid="uid://4yr7naxw5mfe" path="res://Scenes/Dialogue/actionable.tscn" id="6_50glp"]
-[ext_resource type="Resource" uid="uid://wfxbnrhj2d1c" path="res://Dialogue/test.dialogue" id="7_vy5pj"]
+[ext_resource type="Resource" uid="uid://wfxbnrhj2d1c" path="res://Dialogue/pertemuan_pertama.dialogue" id="7_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://b30jm72p827ls" path="res://Assets/GLB format/Textures/colormap.png" id="8_rs5we"]
 [ext_resource type="AudioStream" uid="uid://docwpwctdou6g" path="res://Assets/Audio/bgm/level2.mp3" id="9_vy5pj"]
 

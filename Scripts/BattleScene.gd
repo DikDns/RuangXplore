@@ -22,6 +22,10 @@ func _ready():
 	player = load("res://Scenes/Player.tscn").instantiate()
 	enemy = load(enemy_scene_path).instantiate()
 	
+	var mobile_ui = player.find_child("MobileUI", true, false)
+	if mobile_ui:
+		mobile_ui.visible = false # UI disembunyikan total
+	
 	add_child(player)
 	add_child(enemy)
 	

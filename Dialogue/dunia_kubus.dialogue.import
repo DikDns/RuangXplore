@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://drq1gs8idgshb"
+path="res://.godot/imported/dunia_kubus.dialogue-79fbc4f96c233ca1aff3ea9890052153.tres"
+
+[deps]
+
+source_file="res://Dialogue/dunia_kubus.dialogue"
+dest_files=["res://.godot/imported/dunia_kubus.dialogue-79fbc4f96c233ca1aff3ea9890052153.tres"]
+
+[params]
+
+defaults=true

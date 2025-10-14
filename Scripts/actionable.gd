@@ -5,4 +5,4 @@ extends Area3D
 
 
 func action():
-	DialogueManager.show_example_dialogue_balloon(dialogue_resources, dialogue_start)
+	DialogueManager.show_dialogue_balloon(dialogue_resources, dialogue_start)

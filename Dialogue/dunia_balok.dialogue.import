@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://x43vcydulcuy"
+path="res://.godot/imported/dunia_balok.dialogue-3adbc943e696d625bf41d05be20fd981.tres"
+
+[deps]
+
+source_file="res://Dialogue/dunia_balok.dialogue"
+dest_files=["res://.godot/imported/dunia_balok.dialogue-3adbc943e696d625bf41d05be20fd981.tres"]
+
+[params]
+
+defaults=true
