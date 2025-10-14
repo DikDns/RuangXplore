@@ -1,50 +1,176 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnq6dobo478rd"]
+[gd_scene load_steps=15 format=3 uid="uid://cnq6dobo478rd"]
 
-[ext_resource type="Script" uid="uid://3uw70q0fvg1f" path="res://Scenes/main_menu.gd" id="1_ghw46"]
-[ext_resource type="Texture2D" uid="uid://3a5vucrqgjo6" path="res://Assets/UI/Button Mulai Baru.png" id="2_df05h"]
-[ext_resource type="Texture2D" uid="uid://bbnfsjoas4pjh" path="res://Assets/UI/Button Muat Data.png" id="3_8um5k"]
-[ext_resource type="Texture2D" uid="uid://c82qp8muq78gh" path="res://Assets/UI/Button Pengaturan.png" id="4_xim88"]
-[ext_resource type="AudioStream" uid="uid://dslggr7142oq0" path="res://Assets/Audio/bgm/main_menu.mp3" id="5_df05h"]
+[ext_resource type="Script" uid="uid://b5n676raqmr8h" path="res://Scenes/main_menu.gd" id="1_ghw46"]
+[ext_resource type="Texture2D" uid="uid://0ghgoyj87g80" path="res://Assets/UI/Chat Panel.png" id="2_cmrfp"]
+[ext_resource type="Texture2D" uid="uid://80h5ph3gyk7u" path="res://Assets/UI/Button Speaker Disable.png" id="2_df05h"]
+[ext_resource type="Texture2D" uid="uid://dj64tca6h18rb" path="res://Assets/UI/Button Speaker.png" id="3_8um5k"]
+[ext_resource type="Texture2D" uid="uid://cupqt3xsynohu" path="res://Assets/UI/Button Setting.png" id="4_df05h"]
+[ext_resource type="Texture2D" uid="uid://ox1hffs2dp3g" path="res://Assets/UI/Button Play.png" id="4_koqhg"]
+[ext_resource type="Texture2D" uid="uid://ddb8pc0n7n7ab" path="res://Assets/UI/Button Power.png" id="5_8um5k"]
+[ext_resource type="FontFile" uid="uid://cm47m3gpyq88e" path="res://Assets/UI for MainMenu/ToyBox.ttf" id="7_cmrfp"]
+[ext_resource type="Texture2D" uid="uid://dl7stlclmfxyk" path="res://Assets/UI/Pause.png" id="8_loo7a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loo7a"]
+texture = ExtResource("2_df05h")
+region_rect = Rect2(380, 355, 319, 319)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_853f1"]
+texture = ExtResource("3_8um5k")
+region_rect = Rect2(380, 355, 319, 319)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xim88"]
+texture = ExtResource("4_koqhg")
+region_rect = Rect2(380, 355, 319, 319)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koqhg"]
+texture = ExtResource("4_df05h")
+region_rect = Rect2(380, 355, 319, 319)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmrfp"]
+texture = ExtResource("5_8um5k")
+region_rect = Rect2(380, 355, 319, 320)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 560.0
-offset_top = 291.0
-offset_right = 560.0
-offset_bottom = 291.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ghw46")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -285.0
-offset_top = -223.0
-offset_right = 384.0
-offset_bottom = 291.0
+[node name="PauseMenu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="BaseMenuScreen" type="MarginContainer" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/VBoxContainer/BaseMenuScreen"]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+texture = ExtResource("2_cmrfp")
+region_rect = Rect2(105, 150, 603, 138)
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="TopButtonContainer" type="HBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SpeakerButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/TopButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_loo7a")
+theme_override_styles/normal = SubResource("StyleBoxTexture_853f1")
+
+[node name="PauseButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/TopButtonContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xim88")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xim88")
+
+[node name="BottomButtonContainer2" type="HBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SettingsButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/BottomButtonContainer2"]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_koqhg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_koqhg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_koqhg")
+
+[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/BottomButtonContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cmrfp")
+
+[node name="Tugas Sekarang" type="VBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Level" type="Label" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/Tugas Sekarang"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.941176, 0.466667, 0.298039, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_cmrfp")
+theme_override_font_sizes/font_size = 25
+text = "LEVEL:"
+
+[node name="TugasSekarang" type="Label" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/Tugas Sekarang"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.941176, 0.466667, 0.298039, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_cmrfp")
+theme_override_font_sizes/font_size = 25
+text = "TUGAS:"
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(200, 216.9)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 150
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("8_loo7a")
+region_rect = Rect2(179, 379, 715, 237)
+
+[node name="Control" type="Control" parent="PauseMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
 layout_mode = 2
-icon = ExtResource("2_df05h")
 
-[node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("3_8um5k")
-
-[node name="Pengaturan" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("4_xim88")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_df05h")
-autoplay = true
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Pengaturan" to="." method="_on_pengaturan_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/BottomButtonContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

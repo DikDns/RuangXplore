@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="RuangXplore"
-run/main_scene="uid://cnq6dobo478rd"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://bfempcengopvk"
+config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
@@ -24,6 +24,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/canvas_textures/default_texture_filter=1
 
 [editor_plugins]
 
@@ -85,7 +86,7 @@ pointing/emulate_mouse_from_touch=false
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/dunia_kubus.dialogue", "res://Dialogue/dunia_balok.dialogue", "res://Dialogue/dunia_prisma.dialogue", "res://Dialogue/pertemuan_pertama.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/test.dialogue")
 
 [layer_names]
 
@@ -101,6 +102,7 @@ common/physics_jitter_fix=1.0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 renderer/rendering_method.web="mobile"
 textures/vram_compression/import_etc2_astc=true
