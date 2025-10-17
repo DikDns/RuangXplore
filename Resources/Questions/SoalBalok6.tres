@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://bp0x872bpibu4"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_mhohc"]
+
+[resource]
+script = ExtResource("1_mhohc")
+question_text = "Berapa jumlah titik sudut yang dimiliki balok?"
+answers = Array[String](["6", "8", "10", "12"])
+correct_answer_index = 1
+metadata/_custom_type_script = "uid://be7varhtyfh82"

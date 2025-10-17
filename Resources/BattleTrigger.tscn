@@ -1,17 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn0ji67fdattp"]
+[gd_scene load_steps=3 format=3 uid="uid://bn0ji67fdattp"]
 
 [ext_resource type="Script" uid="uid://ba0xtotsfyk23" path="res://Scripts/BattleTrigger.gd" id="1_0ip6m"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_soyes"]
-radius = 3.52441
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0ip6m"]
 
 [node name="BattleTrigger" type="Area3D"]
 script = ExtResource("1_0ip6m")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CylinderShape3D_soyes")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

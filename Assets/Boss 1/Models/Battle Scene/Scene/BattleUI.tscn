@@ -55,28 +55,6 @@ texture_under = ExtResource("5_ckh0u")
 texture_over = ExtResource("6_8y4ke")
 texture_progress = ExtResource("7_2sjxy")
 
-[node name="DialoguePanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -384.0
-offset_right = 384.0
-offset_bottom = 96.0
-grow_horizontal = 2
-
-[node name="DialogueLabel" type="Label" parent="DialoguePanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 29.0
-offset_top = 19.0
-offset_right = -29.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="QuizPanel" type="Panel" parent="."]
 visible = false
 layout_mode = 1

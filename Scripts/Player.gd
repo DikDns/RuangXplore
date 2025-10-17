@@ -41,13 +41,24 @@ var _interact_button_was_pressed = false
 #------------------------------------------------------------------
 
 func _ready():
+	# --- KONEKSI KE SINGLETONS ---
+	# Player "mendengarkan" sinyal dari BattleManager dan SaveManager
+	# NOTE: Pastikan BattleManager punya signal "battle_started"
+	if BattleManager.has_signal("battle_started"):
+		BattleManager.battle_started.connect(_on_battle_started)
+	BattleManager.battle_ended.connect(_on_battle_ended)
+	
+	# Ambil data HP terakhir dari SaveManager
+	# NOTE: Pastikan SaveManager punya fungsi get_player_hp() dan set_player_hp()
+	if SaveManager:
+		current_hp = SaveManager.get_player_hp()
+
+	#--- SETUP UI ---
 	mobile_ui = get_tree().get_root().find_child("MobileUI", true, false)
 	if mobile_ui:
 		jump_button = mobile_ui.find_child("JumpButton")
 		sprint_button = mobile_ui.find_child("SprintButton")
 		interact_button = mobile_ui.find_child("InteractButton")
-		#if not OS.has_feature("mobile"):
-			#mobile_ui.hide()
 
 	if not OS.has_feature("mobile"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -101,21 +112,16 @@ func _physics_process(delta):
 
 # Fungsi baru buat ngumpulin semua input di satu tempat
 func _get_inputs():
-	# Baca input joystick/keyboard
 	_input_dir = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
 	
-	# Cek tombol aksi
 	_is_sprint_pressed = Input.is_action_pressed("ui_sprint") or (sprint_button and sprint_button.is_pressed())
 	_is_jump_pressed = Input.is_action_just_pressed("ui_jump") or (jump_button and jump_button.is_pressed() and not _jump_button_was_pressed)
 	_is_interact_pressed = Input.is_action_just_pressed("ui_accept") or (interact_button and interact_button.is_pressed() and not _interact_button_was_pressed)
 	
-	# Simpan status tombol UI untuk frame berikutnya
 	if jump_button: _jump_button_was_pressed = jump_button.is_pressed()
 	if interact_button: _interact_button_was_pressed = interact_button.is_pressed()
 
 func handle_movement_input(_delta):
-	# Sekarang, semua fungsi di bawah ini pake variabel _input_dir, _is_sprint_pressed, dll.
-	
 	if _is_jump_pressed and is_on_floor():
 		velocity.y = jump_speed
 		is_jumping = true
@@ -142,7 +148,6 @@ func handle_movement_input(_delta):
 		velocity.z = move_toward(velocity.z, 0, run_speed)
 
 func handle_movement_animation():
-	# Animasi juga pake variabel yang udah konsisten
 	if is_jumping:
 		if animation_state.get_current_node() != "jump": animation_state.travel("jump")
 	elif _input_dir.length() > 0:
@@ -154,8 +159,30 @@ func handle_movement_animation():
 		if animation_state.get_current_node() != "idle": animation_state.travel("idle")
 
 #--- FUNGSI BATTLE ---
+
+# Fungsi ini akan otomatis terpanggil saat battle dimulai
+func _on_battle_started():
+	is_in_battle = true
+	print("Player entering battle state.")
+
+# Fungsi ini akan otomatis terpanggil setiap kali battle berakhir
+func _on_battle_ended(player_won: bool):
+	is_in_battle = false
+	if not player_won:
+		# Jika kalah, reset HP di sini.
+		current_hp = max_hp
+		# Laporkan HP baru ke SaveManager
+		SaveManager.set_player_hp(current_hp)
+		print("Player lost. HP has been restored.")
+	else:
+		print("Player won the battle!")
+		# Setelah menang, HP pemain juga harus di-save
+		SaveManager.set_player_hp(current_hp)
+
 func take_damage(amount: int):
 	current_hp -= amount
+	# Laporkan HP terbaru ke SaveManager setiap kali kena damage
+	SaveManager.set_player_hp(current_hp)
 	print("Player kena damage! HP sisa: ", current_hp)
 
 func attack(target_enemy: Node3D) -> Area3D:

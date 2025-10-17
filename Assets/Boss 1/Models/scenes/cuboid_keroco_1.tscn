@@ -1,0 +1,31 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6adgx1e22q8h"]
+
+[ext_resource type="Script" uid="uid://bis228dy0j75n" path="res://Scripts/Enemy.gd" id="1_ydtkj"]
+[ext_resource type="Resource" uid="uid://x43vcydulcuy" path="res://Dialogue/dunia_balok.dialogue" id="2_b8unx"]
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="3_sapqa"]
+[ext_resource type="Resource" uid="uid://c3ggawfegyyh" path="res://Resources/Questions/SoalBalok1.tres" id="4_7kry1"]
+[ext_resource type="Resource" uid="uid://nwq7ywreth7p" path="res://Resources/Questions/SoalBalok2.tres" id="5_lusyh"]
+[ext_resource type="Resource" uid="uid://71jysge7idch" path="res://Resources/Questions/SoalBalok3.tres" id="6_35rym"]
+[ext_resource type="Resource" uid="uid://bgel4nwb2bkap" path="res://Resources/Questions/SoalBalok4.tres" id="7_0qnfd"]
+[ext_resource type="PackedScene" uid="uid://d225kq8qw16ch" path="res://Assets/Boss 1/Models/Monster/cuboid_monster.glb" id="14_mgr5w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bg6y"]
+size = Vector3(6, 3.8, 3.3)
+
+[node name="cuboid monster" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_ydtkj")
+enemy_id = "keroco_balok_1"
+dialogue_resource = ExtResource("2_b8unx")
+dialogue_title = "keroco_start"
+max_hp = 75
+questions = Array[ExtResource("3_sapqa")]([ExtResource("4_7kry1"), ExtResource("5_lusyh"), ExtResource("6_35rym"), ExtResource("7_0qnfd")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.05)
+shape = SubResource("BoxShape3D_6bg6y")
+
+[node name="cuboid_monster" parent="." instance=ExtResource("14_mgr5w")]
+
+[node name="ProjectileSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)

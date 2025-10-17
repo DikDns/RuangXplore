@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://c64jy3jphk0gv"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_xsaih"]
+
+[resource]
+script = ExtResource("1_xsaih")
+question_text = "Jaring-jaring balok umumnya terdiri dari..."
+answers = Array[String](["6 Persegi", "6 Lingkaran", "4 Persegi Panjang dan 2 Persegi", "2 Segitiga dan 3 Persegi Panjang"])
+correct_answer_index = 2
+metadata/_custom_type_script = "uid://be7varhtyfh82"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv7w7n2q3r02b"]
+
+[ext_resource type="Script" uid="uid://bis228dy0j75n" path="res://Scripts/Enemy.gd" id="1_wddou"]
+[ext_resource type="Resource" uid="uid://drq1gs8idgshb" path="res://Dialogue/dunia_kubus.dialogue" id="2_k53ww"]
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="3_ne805"]
+[ext_resource type="Resource" uid="uid://cgeil0ws1q36m" path="res://Resources/Questions/SoalKubus1.tres" id="4_uvgss"]
+[ext_resource type="Resource" uid="uid://gsdj603uxg4k" path="res://Resources/Questions/SoalKubus2.tres" id="5_3yopf"]
+[ext_resource type="PackedScene" uid="uid://p4jlph245isd" path="res://Assets/Boss 1/Models/cube_monster_no_base.glb" id="13_g7gt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_py5it"]
+size = Vector3(3.1, 3.8, 3.1)
+
+[node name="Cube Keroco" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_wddou")
+enemy_id = "keroco_kubus_1"
+dialogue_resource = ExtResource("2_k53ww")
+dialogue_title = "keroco_start"
+max_hp = 50
+questions = Array[ExtResource("3_ne805")]([ExtResource("4_uvgss"), ExtResource("5_3yopf"), ExtResource("5_3yopf")])
+
+[node name="cube_monster_no_base" parent="." instance=ExtResource("13_g7gt7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.05)
+shape = SubResource("BoxShape3D_py5it")
+
+[node name="ProjectileSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)

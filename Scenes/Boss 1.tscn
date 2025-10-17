@@ -1,6 +1,7 @@
-[gd_scene load_steps=72 format=3 uid="uid://ba68vibf2r4ks"]
+[gd_scene load_steps=81 format=3 uid="uid://ba68vibf2r4ks"]
 
 [ext_resource type="Texture2D" uid="uid://dcmlbleg26ix5" path="res://Assets/Boss 1/qwantani_moonrise_puresky_1k.hdr" id="1_fjcg3"]
+[ext_resource type="Script" uid="uid://ddxyecpvr8dvi" path="res://Scripts/BossScene.gd" id="1_nw733"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://Scenes/Player.tscn" id="1_u1qbg"]
 [ext_resource type="PackedScene" uid="uid://dvesgu648n0qh" path="res://Assets/Boss 1/Models/scenes/wall_1.tscn" id="2_ope7w"]
 [ext_resource type="PackedScene" uid="uid://d0qe2mfavkrks" path="res://Assets/Boss 1/Models/scenes/wall_2.tscn" id="3_1hjgr"]
@@ -23,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0ji67fdattp" path="res://Resources/BattleTrigger.tscn" id="21_owq3b"]
 [ext_resource type="PackedScene" uid="uid://cjrgrco22p83y" path="res://Assets/Boss 1/Models/scenes/wall_half.tscn" id="22_njgtt"]
 [ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="23_odpnr"]
+[ext_resource type="Resource" uid="uid://drq1gs8idgshb" path="res://Dialogue/dunia_kubus.dialogue" id="24_cytdg"]
 [ext_resource type="Resource" uid="uid://cgeil0ws1q36m" path="res://Resources/Questions/SoalKubus1.tres" id="24_mt8b6"]
 [ext_resource type="Resource" uid="uid://gsdj603uxg4k" path="res://Resources/Questions/SoalKubus2.tres" id="25_saldo"]
 [ext_resource type="Resource" uid="uid://bbxxxl0f0owog" path="res://Resources/Questions/SoalKubus3.tres" id="26_nw733"]
@@ -35,6 +37,10 @@
 [ext_resource type="Resource" uid="uid://clcl3ww2sr8ex" path="res://Resources/Questions/SoalKubus10.tres" id="33_bj8r4"]
 [ext_resource type="AudioStream" uid="uid://by3tfujxdmixs" path="res://Assets/Audio/bgm/level1.mp3" id="34_mt8b6"]
 [ext_resource type="PackedScene" uid="uid://c26wl04bywv7y" path="res://Assets/Characters/cewek.glb" id="35_saldo"]
+[ext_resource type="PackedScene" uid="uid://betwb0io5sjxc" path="res://Scenes/Portal.tscn" id="37_rb2sm"]
+[ext_resource type="PackedScene" uid="uid://dv7w7n2q3r02b" path="res://Assets/Boss 1/Models/scenes/cube_keroco.tscn" id="39_ru3ra"]
+[ext_resource type="PackedScene" uid="uid://dndxm0m45lcar" path="res://Scenes/Dialogue/trigger_initial_dialogue.tscn" id="40_dav1c"]
+[ext_resource type="PackedScene" uid="uid://4yr7naxw5mfe" path="res://Scenes/Dialogue/actionable.tscn" id="41_bj8r4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_njgtt"]
 panorama = ExtResource("1_fjcg3")
@@ -48,6 +54,14 @@ background_energy_multiplier = 0.3
 sky = SubResource("Sky_owq3b")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ru3ra"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f6cnp"]
+size = Vector3(2.6797562, 0.63793945, 0.39257813)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlj72"]
+size = Vector3(1.796875, 1, 0.95703125)
 
 [sub_resource type="Animation" id="Animation_kv71t"]
 resource_name = "attack-kick-left"
@@ -2681,6 +2695,9 @@ _data = {
 }
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_nw733")
+boss_id = "monster_kubus"
+post_battle_dialogue = ExtResource("24_cytdg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d6sgd")
@@ -3911,21 +3928,52 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 
 [node name="Wall half2" parent="." instance=ExtResource("22_njgtt")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -23)
 
-[node name="BattleTrigger" parent="." instance=ExtResource("21_owq3b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93946, 1.02861, -12.679)
-enemy_scene = ExtResource("21_njgtt")
-enemy_id = "monster_kubus"
-
-[node name="Cube Monster" parent="." instance=ExtResource("21_njgtt")]
+[node name="Boss" parent="." instance=ExtResource("21_njgtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.6, -17.6)
 questions = Array[ExtResource("23_odpnr")]([ExtResource("24_mt8b6"), ExtResource("25_saldo"), ExtResource("26_nw733"), ExtResource("27_rb2sm"), ExtResource("28_cytdg"), ExtResource("29_ru3ra"), ExtResource("30_2lfso"), ExtResource("31_dvdrd"), ExtResource("32_dav1c"), ExtResource("33_bj8r4")])
+
+[node name="BattleTrigger" parent="Boss" node_paths=PackedStringArray("spawn_marker") instance=ExtResource("21_owq3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93946004, -0.57139003, 4.9210005)
+enemy_scene = "res://Assets/Boss 1/Models/scenes/cube_monster.tscn"
+enemy_id = "monster_kubus"
+spawn_marker = NodePath("SpawnMarker")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boss/BattleTrigger"]
+transform = Transform3D(6.895, 0, 0, 0, 6.895, 0, 0, 0, 6.895, 0, 0, 0)
+shape = SubResource("BoxShape3D_ru3ra")
+
+[node name="SpawnMarker" type="Marker3D" parent="Boss/BattleTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="TriggerDialogue" parent="Boss" instance=ExtResource("40_dav1c")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0039999485, -1.51, 12.478912)
+dialogue_resource = ExtResource("24_cytdg")
+dialogue_title = "boss"
+npc_node_path = NodePath("../../cewek")
+spawn_marker_path = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/TriggerDialogue"]
+transform = Transform3D(0.64074147, 0, 0, 0, 2.61, 0, 0, 0, 2.61, -0.8884803, -0.013903052, -1.0821869)
+shape = SubResource("BoxShape3D_f6cnp")
+
+[node name="Marker3D" type="Marker3D" parent="Boss/TriggerDialogue"]
+transform = Transform3D(0.36609915, 0, 0.34054577, 0, 0.5, 0, -0.34054577, 0, 0.36609915, -1.8055578, 0.003999997, -1.2488446)
+
+[node name="Actionable" parent="Boss/TriggerDialogue" instance=ExtResource("41_bj8r4")]
+transform = Transform3D(-0.18146837, 0, -0.2574767, 0, 0.315, 0, 0.2574767, 0, -0.18146837, -1.5965275, 0.02774036, -1.0343618)
+dialogue_resources = ExtResource("24_cytdg")
+dialogue_start = "awal_masuk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/TriggerDialogue/Actionable"]
+transform = Transform3D(1.3799236, 0, 0, 0, 1.3799233, 0, 0, 0, 1.3799236, -0.30110264, 0.44089139, 0.4649768)
+shape = SubResource("BoxShape3D_dlj72")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("34_mt8b6")
 autoplay = true
 
 [node name="cewek" parent="." instance=ExtResource("35_saldo")]
-transform = Transform3D(0.53264, 0, 0.846342, 0, 1, 0, -0.846342, 0, 0.53264, -4.6223, 0.021237, -7.69356)
+transform = Transform3D(0.53264, 0, 0.846342, 0, 1, 0, -0.846342, 0, 0.53264, -4.6223, -5.6416936, -7.69356)
 
 [node name="Skeleton3D" parent="cewek/character-female-e" index="0"]
 bones/1/rotation = Quaternion(-4.34492e-40, -1.46876e-09, 5.91646e-31, 1)
@@ -3944,5 +3992,50 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_87elh")
 }
+
+[node name="PortalSekolah" parent="." instance=ExtResource("37_rb2sm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0293384, 1.0195508, -22.841497)
+visible = false
+target_scene_path = "uid://r7if1uc6ijcj"
+portal_name = "Sekolah"
+boss_id = ""
+
+[node name="Keroco" parent="." groups=["kubus_kerocos"] instance=ExtResource("39_ru3ra")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.406, 0.815, -3.168)
+
+[node name="BattleTrigger" parent="Keroco" node_paths=PackedStringArray("spawn_marker") instance=ExtResource("21_owq3b")]
+enemy_scene = "res://Assets/Boss 1/Models/scenes/cube_keroco.tscn"
+enemy_id = "keroco_kubus_1"
+spawn_marker = NodePath("SpawnMarker")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Keroco/BattleTrigger"]
+transform = Transform3D(32, 0, 0, 0, 5, 0, 0, 0, 14, 0, 0, -1.1469359)
+shape = SubResource("BoxShape3D_ru3ra")
+
+[node name="SpawnMarker" type="Marker3D" parent="Keroco/BattleTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.708761)
+
+[node name="TriggerFirstDialogue" parent="Keroco" instance=ExtResource("40_dav1c")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0039999485, -1.51, 20.43)
+dialogue_resource = ExtResource("24_cytdg")
+dialogue_title = "awal_masuk"
+npc_node_path = NodePath("../../cewek")
+spawn_marker_path = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Keroco/TriggerFirstDialogue"]
+transform = Transform3D(2.61, 0, 0, 0, 3.1385052, 0, 0, 0, 11.006386, -0.577, 0.428, -1.4617615)
+shape = SubResource("BoxShape3D_f6cnp")
+
+[node name="Marker3D" type="Marker3D" parent="Keroco/TriggerFirstDialogue"]
+transform = Transform3D(0.7321983, 0, 0.68109155, 0, 1, 0, -0.68109155, 0, 0.7321983, -3.384, 0.003999997, -2.5170002)
+
+[node name="Actionable" parent="Keroco/TriggerFirstDialogue" instance=ExtResource("41_bj8r4")]
+transform = Transform3D(-0.76604474, 0, -0.6427879, 0, 1, 0, 0.6427879, 0, -0.76604474, -2.714, 0.02774036, -1.557)
+dialogue_resources = ExtResource("24_cytdg")
+dialogue_start = "awal_masuk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Keroco/TriggerFirstDialogue/Actionable"]
+transform = Transform3D(1.3799236, 0, 0, 0, 1.3799233, 0, 0, 0, 1.3799236, -0.30110264, 0.44089139, 0.4649768)
+shape = SubResource("BoxShape3D_dlj72")
 
 [editable path="cewek"]

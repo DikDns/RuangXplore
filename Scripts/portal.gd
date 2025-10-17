@@ -4,6 +4,7 @@ class_name Portal
 # Variabel yang bisa di-set dari editor
 @export_file("*.tscn") var target_scene_path: String
 @export var portal_name: String = "Lokasi Misterius"
+@export var boss_id: String = "monster_kubus"
 
 @onready var confirmation_ui = $ConfirmationUI
 @onready var info_label = $ConfirmationUI/PanelContainer/MarginContainer/VBoxContainer/InfoLabel

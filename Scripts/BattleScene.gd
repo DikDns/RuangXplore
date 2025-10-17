@@ -3,6 +3,7 @@ extends Node3D
 var player: Player
 var enemy: Enemy
 var current_question: QuizQuestion
+var _mobile_ui
 
 var all_questions: Array
 var available_questions: Array
@@ -13,18 +14,19 @@ var available_questions: Array
 @onready var battle_camera = $BattleCamera
 
 func _ready():
-	var enemy_scene_path = BattleManager.current_enemy_scene_path
+	var enemy_scene_path = BattleManager.active_enemy_scene_path
 	
 	if enemy_scene_path.is_empty():
-		get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+		print("ERROR: Battle scene entered without starting a battle. Returning to main menu.")
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 		return
 
 	player = load("res://Scenes/Player.tscn").instantiate()
 	enemy = load(enemy_scene_path).instantiate()
 	
-	var mobile_ui = player.find_child("MobileUI", true, false)
-	if mobile_ui:
-		mobile_ui.visible = false # UI disembunyikan total
+	_mobile_ui = player.find_child("MobileUI", true, false)
+	if _mobile_ui:
+		_mobile_ui.hide()
 	
 	add_child(player)
 	add_child(enemy)
@@ -43,7 +45,7 @@ func _ready():
 	
 	player.is_in_battle = true
 	
-	player.current_hp = BattleManager.player_current_hp
+	player.current_hp = SaveManager.get_player_hp()
 	enemy.current_hp = enemy.max_hp
 	
 	all_questions = enemy.questions.duplicate()
@@ -59,10 +61,16 @@ func _ready():
 func start_battle():
 	battle_ui.update_hp(player.current_hp, player.max_hp, enemy.current_hp, enemy.max_hp)
 	
-	battle_ui.show_dialogue(enemy.intro_dialogue)
-	await get_tree().create_timer(3.0).timeout
-	
-	battle_ui.hide_dialogue()
+	if enemy.dialogue_resource:
+		DialogueManager.dialogue_ended.connect(_on_intro_dialogue_finished, CONNECT_ONE_SHOT)
+		DialogueManager.show_dialogue_balloon(enemy.dialogue_resource, enemy.dialogue_title)
+	else:
+		print("No dialogue resource found for this enemy. Starting quiz directly.")
+		ask_next_question()
+
+# --- FUNGSI BARU: Dipanggil setelah dialog intro selesai ---
+func _on_intro_dialogue_finished(_resource: DialogueResource):
+	# Mulai kuis setelah dialog selesai
 	ask_next_question()
 
 func ask_next_question():
@@ -88,22 +96,18 @@ func _on_answer_button_pressed(index: int):
 		projectile.hit_target.connect(_on_projectile_hit_enemy)
 	else:
 		projectile = enemy.attack(player)
-		# Hubungkan sinyal dari proyektil monster ke fungsi damage
 		projectile.hit_target.connect(_on_projectile_hit_player)
 
-# --- FUNGSI BARU: Dipanggil saat fireball player kena musuh ---
 func _on_projectile_hit_enemy():
 	enemy.current_hp -= 25
 	print("Correct! Enemy HP: ", enemy.current_hp)
 	_check_battle_status()
 
-# --- FUNGSI BARU: Dipanggil saat proyektil monster kena player ---
 func _on_projectile_hit_player():
 	player.take_damage(10)
 	print("Wrong! Player HP: ", player.current_hp)
 	_check_battle_status()
 
-# --- FUNGSI BARU: Untuk mengecek status setelah damage ---
 func _check_battle_status():
 	battle_ui.update_hp(player.current_hp, player.max_hp, enemy.current_hp, enemy.max_hp)
 	
@@ -117,9 +121,4 @@ func _check_battle_status():
 		ask_next_question()
 
 func end_battle(player_won: bool):
-	if player_won:
-		BattleManager.player_current_hp = player.current_hp
-	else:
-		BattleManager.player_current_hp = player.max_hp
-
 	BattleManager.end_battle(player_won)

@@ -1,0 +1,32 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqfyhkgsnku50"]
+
+[ext_resource type="Script" uid="uid://bis228dy0j75n" path="res://Scripts/Enemy.gd" id="1_vyqcl"]
+[ext_resource type="Resource" uid="uid://dkwweuf3brfvo" path="res://Dialogue/dunia_prisma.dialogue" id="2_a4lge"]
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="3_hbrgl"]
+[ext_resource type="Resource" uid="uid://d83ikayk8xp7" path="res://Resources/Questions/SoalPrisma2.tres" id="5_wdjjy"]
+[ext_resource type="Resource" uid="uid://dx3dqdcx6pwye" path="res://Resources/Questions/SoalPrisma3.tres" id="6_x035l"]
+[ext_resource type="Resource" uid="uid://x4thi8eiep7q" path="res://Resources/Questions/SoalPrisma5.tres" id="8_lqr6g"]
+[ext_resource type="Resource" uid="uid://8wu041v2586u" path="res://Resources/Questions/SoalPrisma7.tres" id="10_6o6gp"]
+[ext_resource type="Resource" uid="uid://owsghutoiy6k" path="res://Resources/Questions/SoalPrisma9.tres" id="12_di71r"]
+[ext_resource type="PackedScene" uid="uid://dfvetw6lmopxf" path="res://Assets/Boss 1/Models/Monster/Prism Monster.glb" id="14_k1tgg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo13x"]
+size = Vector3(7.7, 5.5, 4.6)
+
+[node name="StaticBody3D" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_vyqcl")
+enemy_id = "keroco_prisma_1"
+dialogue_resource = ExtResource("2_a4lge")
+dialogue_title = "keroco_start"
+questions = Array[ExtResource("3_hbrgl")]([ExtResource("5_wdjjy"), ExtResource("6_x035l"), ExtResource("8_lqr6g"), ExtResource("10_6o6gp"), ExtResource("12_di71r")])
+metadata/_edit_group_ = true
+
+[node name="Prism Monster" parent="." instance=ExtResource("14_k1tgg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_fo13x")
+
+[node name="ProjectileSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)

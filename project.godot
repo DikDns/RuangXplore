@@ -18,10 +18,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 BattleManager="*res://Scripts/BattleManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SaveManager="*res://Scripts/SaveManager.gd"
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/canvas_textures/default_texture_filter=1
@@ -33,6 +33,9 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 [global_group]
 
 player=""
+kubus_kerocos=""
+portal_dunia=""
+balok_kerocos=""
 
 [input]
 

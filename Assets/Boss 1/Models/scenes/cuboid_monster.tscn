@@ -1,14 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtyp655ubtmwh"]
+[gd_scene load_steps=16 format=3 uid="uid://dtyp655ubtmwh"]
 
+[ext_resource type="Script" uid="uid://bis228dy0j75n" path="res://Scripts/Enemy.gd" id="1_6bg6y"]
 [ext_resource type="PackedScene" uid="uid://d225kq8qw16ch" path="res://Assets/Boss 1/Models/Monster/cuboid_monster.glb" id="1_dnjse"]
+[ext_resource type="Resource" uid="uid://x43vcydulcuy" path="res://Dialogue/dunia_balok.dialogue" id="2_ac21n"]
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="3_27vvg"]
+[ext_resource type="Resource" uid="uid://c3ggawfegyyh" path="res://Resources/Questions/SoalBalok1.tres" id="4_eqvpq"]
+[ext_resource type="Resource" uid="uid://nwq7ywreth7p" path="res://Resources/Questions/SoalBalok2.tres" id="5_e32fq"]
+[ext_resource type="Resource" uid="uid://71jysge7idch" path="res://Resources/Questions/SoalBalok3.tres" id="6_586lx"]
+[ext_resource type="Resource" uid="uid://bgel4nwb2bkap" path="res://Resources/Questions/SoalBalok4.tres" id="7_cb1wc"]
+[ext_resource type="Resource" uid="uid://dr82coyyr2k4o" path="res://Resources/Questions/SoalBalok5.tres" id="8_dmmuv"]
+[ext_resource type="Resource" uid="uid://bp0x872bpibu4" path="res://Resources/Questions/SoalBalok6.tres" id="9_jd3gl"]
+[ext_resource type="Resource" uid="uid://c64jy3jphk0gv" path="res://Resources/Questions/SoalBalok7.tres" id="10_si3tp"]
+[ext_resource type="Resource" uid="uid://dbuoafkehl5el" path="res://Resources/Questions/SoalBalok8.tres" id="11_upf8k"]
+[ext_resource type="Resource" uid="uid://kh05h7lpyuse" path="res://Resources/Questions/SoalBalok9.tres" id="12_h8a8q"]
+[ext_resource type="Resource" uid="uid://dgxga6cbcq2vx" path="res://Resources/Questions/SoalBalok10.tres" id="13_kxhqr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bg6y"]
 size = Vector3(6, 3.8, 3.3)
 
-[node name="cuboid monster" type="StaticBody3D"]
+[node name="cuboid monster" type="CharacterBody3D"]
+script = ExtResource("1_6bg6y")
+enemy_id = "monster_balok"
+dialogue_resource = ExtResource("2_ac21n")
+dialogue_title = "boss_start"
+max_hp = 150
+questions = Array[ExtResource("3_27vvg")]([ExtResource("4_eqvpq"), ExtResource("5_e32fq"), ExtResource("6_586lx"), ExtResource("7_cb1wc"), ExtResource("8_dmmuv"), ExtResource("9_jd3gl"), ExtResource("10_si3tp"), ExtResource("11_upf8k"), ExtResource("12_h8a8q"), ExtResource("13_kxhqr")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.05)
 shape = SubResource("BoxShape3D_6bg6y")
 
 [node name="cuboid_monster" parent="." instance=ExtResource("1_dnjse")]
+
+[node name="ProjectileSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)

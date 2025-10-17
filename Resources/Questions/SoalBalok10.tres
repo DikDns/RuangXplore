@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://dgxga6cbcq2vx"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_wu7cv"]
+
+[resource]
+script = ExtResource("1_wu7cv")
+question_text = "Sebuah balok memiliki 12 rusuk yang terbagi menjadi... kelompok rusuk yang sama panjang."
+answers = Array[String](["2 kelompok (panjang & lebar)", "3 kelompok (panjang, lebar, & tinggi)", "4 kelompok", "Semua rusuknya beda panjang"])
+correct_answer_index = 1
+metadata/_custom_type_script = "uid://be7varhtyfh82"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://dr82coyyr2k4o"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_rgvn6"]
+
+[resource]
+script = ExtResource("1_rgvn6")
+question_text = "Apa perbedaan utama antara kubus dan balok?"
+answers = Array[String](["Jumlah sisinya berbeda", "Tidak semua rusuk balok sama panjang", "Balok tidak memiliki titik sudut", "Kubus memiliki sisi melengkung"])
+correct_answer_index = 1
+metadata/_custom_type_script = "uid://be7varhtyfh82"

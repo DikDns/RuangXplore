@@ -14,4 +14,5 @@ func _on_dialogue_started(_resource: DialogueResource):
 # Fungsi ini akan otomatis terpanggil ketika dialog berakhir
 func _on_dialogue_ended(_resource: DialogueResource):
 	print("Dialogue ended, showing mobile UI.")
-	show()
+	if BattleManager.active_enemy_id.is_empty():
+		show()

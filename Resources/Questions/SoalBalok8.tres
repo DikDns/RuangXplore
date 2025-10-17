@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://dbuoafkehl5el"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_owh8e"]
+
+[resource]
+script = ExtResource("1_owh8e")
+question_text = "Sebuah akuarium berbentuk balok dengan volume 120 liter. Jika panjangnya 60 cm dan lebarnya 40 cm, berapa tingginya? (1 liter = 1000 cm³)"
+answers = Array[String](["30 cm", "40 cm", "50 cm", "60 cm"])
+correct_answer_index = 2
+metadata/_custom_type_script = "uid://be7varhtyfh82"

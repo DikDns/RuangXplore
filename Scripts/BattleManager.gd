@@ -1,39 +1,47 @@
+# BattleManager.gd
+# Jadikan ini sebagai Autoload/Singleton dengan nama "BattleManager"
 extends Node
 
-# Data Player
-var player_max_hp: int = 100
-var player_current_hp: int = 100
+# Signal yang akan dipancarkan saat battle dimulai dan selesai
+signal battle_started
+signal battle_ended(player_won: bool)
 
-# Data Battle Saat Ini
+# Variabel sementara untuk menyimpan data PENTING selama battle.
 var previous_scene_path: String
-var current_enemy_scene_path: String
-var current_enemy_id: String
+var prev_enemy_id = ""
+var active_enemy_id: String
+var active_enemy_scene_path: String # Ditambahkan kembali untuk referensi BattleScene
+var previous_player_position: Vector3 = Vector3.ZERO # <-- LOKASI TERAKHIR PLAYER
+@export var battle_scene_path: String = "res://Scenes/Battle Scene.tscn"
 
-# Data Progres
-var defeated_enemies: Array[String] = []
-
-func start_battle(player: Player, enemy_scene: PackedScene, enemy_id: String):
-	# Simpan semua data yang dibutuhkan sebelum pindah scene
-	player_current_hp = player.current_hp
+# `enemy_scene_path` ditambahkan sebagai parameter
+func start_battle(enemy_id: String, enemy_scene_path: String, player_position: Vector3):
+	# 1. Simpan data-data penting sebelum pindah scene
 	previous_scene_path = get_tree().current_scene.scene_file_path
-	current_enemy_scene_path = enemy_scene.resource_path
-	current_enemy_id = enemy_id
+	active_enemy_id = enemy_id
+	active_enemy_scene_path = enemy_scene_path # Simpan path scene musuh
+	previous_player_position = player_position # <-- Posisi player disimpan di sini
 	
-	# Pindah ke scene pertarungan
-	get_tree().change_scene_to_file("res://Scenes/Battle Scene.tscn")
+	# 2. Pancarkan signal bahwa battle dimulai
+	battle_started.emit()
+	
+	# 3. Pindah ke scene pertarungan
+	get_tree().change_scene_to_file(battle_scene_path)
+
 
 func end_battle(player_won: bool):
 	if player_won:
-		# Jika menang, catat ID musuh yang dikalahkan
-		if not current_enemy_id in defeated_enemies:
-			defeated_enemies.append(current_enemy_id)
-	else:
-		# Jika kalah, reset HP player
-		player_current_hp = player_max_hp
+		SaveManager.mark_enemy_as_defeated(active_enemy_id)
+		SaveManager.save_game()
+		print("Player won against ", active_enemy_id)
 	
-	# Hapus data battle saat ini
-	current_enemy_scene_path = ""
-	current_enemy_id = ""
+	# Bersihkan data temporer setelah battle selesai
+	prev_enemy_id = active_enemy_id
+	active_enemy_id = ""
+	active_enemy_scene_path = ""
+	
+	# Pancarkan signal bahwa battle telah berakhir
+	battle_ended.emit(player_won)
 	
 	# Kembali ke scene sebelumnya
 	if not previous_scene_path.is_empty():

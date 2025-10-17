@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" load_steps=2 format=3 uid="uid://c3ggawfegyyh"]
+
+[ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="1_fxya2"]
+
+[resource]
+script = ExtResource("1_fxya2")
+question_text = "Berapa jumlah rusuk yang dimiliki oleh sebuah balok?"
+answers = Array[String](["6", "8", "10", "12"])
+correct_answer_index = 3
+metadata/_custom_type_script = "uid://be7varhtyfh82"

@@ -1,15 +1,48 @@
 ~ dunia_kubus
 Budi: Itu... portalnya, Fiore?
 Fiore: Benar, Budi. Di baliknya ada Dunia Kubus. Tapi sebelum kamu masuk, aku harus pastikan kamu siap. Kekuatanmu aktif kalau kamu paham apa yang kamu lawan.
-Fiore: Dengerin baik-baik, ya. Pertama, kamu harus tau apa itu Kubus.
-Fiore: Kubus adalah bangun ruang yang semua sisinya berbentuk persegi dan semua rusuknya sama panjang. Ingat, kuncinya: semua sisinya persegi.
-Budi: Oh, kayak dadu atau rubik, kan?
-Fiore: Tepat sekali! Sekarang, perhatikan sifat-sifatnya. Ini penting buat nemuin kelemahan monster di sana.
+=> END
+
+~ awal_masuk
+Budi: Wah... tempat apa ini, Fiore?
+Fiore: Selamat datang di Dunia Kubus, Budi! Ini adalah manifestasi dari konsep kubus yang kita bicarakan tadi.
+Fiore: Dengerin baik-baik, ya. Aku akan ulangi lagi materinya agar kekuatanmu semakin kuat di sini.
+Fiore: Ingat, Kubus adalah bangun ruang yang semua sisinya berbentuk persegi dan semua rusuknya sama panjang.
+Budi: Seperti dadu dan rubik! Aku ingat!
+Fiore: Tepat! Perhatikan sifat-sifatnya, ini penting untuk mengalahkan monster di sini.
 Fiore: Sebuah kubus punya 6 sisi berbentuk persegi, 12 rusuk yang sama panjang, dan 8 titik sudut.
-Budi: 6 sisi, 12 rusuk, 8 titik sudut... Oke, aku coba ingat!
-Fiore: Bagus. Terkadang, kamu akan melihat monster dalam bentuk jaring-jaring. Itu adalah kubus yang dibuka dan direbahkan. Kalau kamu bisa bayangin jaring-jaring itu dilipet jadi kubus, kamu bakal tau bentuk asli mereka!
-Fiore: Terakhir, dan ini yang paling kuat, rumus. Untuk menghitung isi dari monster kubus, atau Volume, rumusnya adalah Sisi x Sisi x Sisi.
-Fiore: Dan untuk menghitung luas seluruh permukaannya, rumusnya adalah 6 x (Sisi x Sisi).
-Budi: Wah... agak rumit, tapi aku ngerti intinya!
-Fiore: Kamu pasti bisa. Ingat semua itu, dan gunakan pengetahuanmu sebagai senjata. Sekarang, pergilah! Hati-hati, Budi!
+Budi: 6 sisi, 12 rusuk, 8 titik sudut... Siap!
+Fiore: Untuk menghitung Volume atau isi monster kubus, rumusnya adalah Sisi x Sisi x Sisi.
+Fiore: Dan untuk Luas Permukaannya, rumusnya adalah 6 x (Sisi x Sisi).
+Budi: Oke, aku mengerti. Pengetahuan ini senjataku!
+Fiore: Benar sekali! Sekarang, jelajahi dunia ini dan selamatkan temanmu! Hati-hati ya!
+=> END
+
+~ lose
+Budi: Oh tidak... aku salah jawab.
+Fiore: Tak apa, Budi. Coba lagi. Kalau kamu tenang, kamu pasti bisa.
+=> END
+
+~ boss
+Budi: Fiore, lihat! Yang itu besar sekali!
+Fiore: Itu dia Raja Kubus, Budi. Penjaga terakhir di dunia ini. Dia jauh lebih kuat dari monster lain.
+Fiore: Ingat semua yang sudah kamu pelajari. Sifat-sifatnya, rumusnya... Gunakan semua itu sekarang!
+Budi: Aku siap, Fiore! Demi teman-temanku!
+=> END
+
+~ boss_start
+Raja Kubus: Aku Raja Kubus! Semua sisiku sama panjang. Bisakah kamu mengalahkanku?
+Budi: Aku tahu kamu kubus karena semua sisimu sama!
+Fiore: Jawabanmu tepat! Gunakan itu untuk menyerang!
+=> END
+
+~ keroco_start
+Keroco Kubus: Hehe, ada anak kecil datang! Kalau mau lewat, jawab dulu pertanyaanku!
+Budi: Aku nggak takut! Aku mau nolong teman-temanku!
+Fiore: Budi, pikirkan bentuk kubus yang sering kamu lihat di dunia nyata.
+=> END
+
+~ boss_defeated
+Budi: Temanku... sudah bebas!
+Fiore: Bagus, Budi. Mari lanjut ke portal berikutnya.
 => END
