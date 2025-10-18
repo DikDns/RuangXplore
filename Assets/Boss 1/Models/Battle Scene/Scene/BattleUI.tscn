@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds12ytbkefpl8"]
+[gd_scene load_steps=15 format=3 uid="uid://ds12ytbkefpl8"]
 
 [ext_resource type="Script" uid="uid://dsg5khicjd5n2" path="res://Scripts/BattleUI.gd" id="1_8gvp3"]
 [ext_resource type="Texture2D" uid="uid://bn3wcojxy1flv" path="res://Assets/Boss 1/Models/Battle Scene/UI/progress_bar_player_under.png" id="2_ikuy4"]
@@ -7,6 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://c6c8djys0oa1x" path="res://Assets/Boss 1/Models/Battle Scene/UI/progress_bar_enemy_under.png" id="5_ckh0u"]
 [ext_resource type="Texture2D" uid="uid://ixnlvfarhvag" path="res://Assets/Boss 1/Models/Battle Scene/UI/progress_bar_enemy_over.png" id="6_8y4ke"]
 [ext_resource type="Texture2D" uid="uid://dgn7pbqrjj882" path="res://Assets/Boss 1/Models/Battle Scene/UI/progress_bar_enemy.png" id="7_2sjxy"]
+[ext_resource type="Texture2D" uid="uid://cdnkc8tuclbnl" path="res://Assets/UI/Kuis Panel.png" id="8_jowj3"]
+[ext_resource type="Texture2D" uid="uid://cs8e3qq24xhg6" path="res://Assets/UI/6654537.jpg" id="9_stlog"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esvfb"]
+texture = ExtResource("8_jowj3")
+region_rect = Rect2(105, 77, 603, 223)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8he5"]
+texture = ExtResource("9_stlog")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ot1w2"]
+texture = ExtResource("9_stlog")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x2ss8"]
+texture = ExtResource("9_stlog")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_42sm3"]
+texture = ExtResource("9_stlog")
 
 [node name="BattleUI" type="Control"]
 layout_mode = 3
@@ -56,7 +74,6 @@ texture_over = ExtResource("6_8y4ke")
 texture_progress = ExtResource("7_2sjxy")
 
 [node name="QuizPanel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,6 +86,7 @@ offset_right = 383.0
 offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_esvfb")
 
 [node name="QuestionLabel" type="Label" parent="QuizPanel"]
 layout_mode = 1
@@ -76,10 +94,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -324.0
-offset_top = 26.0
+offset_top = 34.0
 offset_right = 325.0
 offset_bottom = 115.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="QuizPanel"]
 layout_mode = 1
@@ -98,19 +117,39 @@ grow_vertical = 0
 [node name="AnswerButtonA" type="Button" parent="QuizPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_x8he5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x8he5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8he5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_x8he5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_x8he5")
 text = "A"
 
 [node name="AnswerButtonB" type="Button" parent="QuizPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_ot1w2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ot1w2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ot1w2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ot1w2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ot1w2")
 text = "B"
 
 [node name="AnswerButtonC" type="Button" parent="QuizPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_x2ss8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x2ss8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x2ss8")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_x2ss8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_x2ss8")
 text = "C"
 
 [node name="AnswerButtonD" type="Button" parent="QuizPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_42sm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_42sm3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_42sm3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_42sm3")
+theme_override_styles/focus = SubResource("StyleBoxTexture_42sm3")
 text = "D"

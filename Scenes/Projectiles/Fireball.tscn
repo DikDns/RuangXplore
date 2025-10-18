@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvh7hvqrropl0"]
+[gd_scene load_steps=6 format=3 uid="uid://cvh7hvqrropl0"]
 
 [ext_resource type="Script" uid="uid://dejay50kb0m48" path="res://Scripts/fireball.gd" id="1_c05ox"]
+[ext_resource type="PackedScene" uid="uid://bgjhau6ox5cfy" path="res://Scenes/Projectiles/fire_enemy_for_a_game_jam__animation.glb" id="2_fa2tn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o53bx"]
 albedo_color = Color(1, 0.666667, 0, 1)
@@ -15,10 +16,14 @@ emission = Color(1, 0.666667, 0, 1)
 script = ExtResource("1_c05ox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_o53bx")
 mesh = SubResource("BoxMesh_dju2h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ffurd")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_fa2tn")]
+transform = Transform3D(0.7, 0, 0, 0, 0.08581637, -0.77659523, 0, 0.73420626, 0.09077093, -0.100000024, -0.09999988, -1.0699998)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

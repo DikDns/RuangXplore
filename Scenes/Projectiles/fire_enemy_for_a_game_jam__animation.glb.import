@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cptyemigr3ksv"
-path="res://.godot/imported/budi.glb-bc5cf34365699847e3d8eb2a6fe81fa1.scn"
+uid="uid://bgjhau6ox5cfy"
+path="res://.godot/imported/fire_enemy_for_a_game_jam__animation.glb-15b62b2f5fd5be99a1e6d6781a0372ec.scn"
 
 [deps]
 
-source_file="res://Assets/GLB format/budi.glb"
-dest_files=["res://.godot/imported/budi.glb-bc5cf34365699847e3d8eb2a6fe81fa1.scn"]
+source_file="res://Scenes/Projectiles/fire_enemy_for_a_game_jam__animation.glb"
+dest_files=["res://.godot/imported/fire_enemy_for_a_game_jam__animation.glb-15b62b2f5fd5be99a1e6d6781a0372ec.scn"]
 
 [params]
 
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1
