@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dodqrchyw8bfy" path="res://Assets/UI/iPhone 13 mini - 1.png" id="2_b8lvj"]
 [ext_resource type="Texture2D" uid="uid://c6vqeagg431lk" path="res://Assets/UI/Logo.png" id="3_sj2jm"]
 [ext_resource type="Texture2D" uid="uid://cb2xaarrqhg1e" path="res://Assets/UI/Button Main.png" id="4_3as1s"]
-[ext_resource type="Texture2D" uid="uid://bbnfsjoas4pjh" path="res://Assets/UI/Button Muat Data.png" id="5_dr1m3"]
+[ext_resource type="Texture2D" uid="uid://dq26e22ca2nsh" path="res://Assets/UI/Lanjutkanpng.png" id="5_cepg5"]
 [ext_resource type="Texture2D" uid="uid://c82qp8muq78gh" path="res://Assets/UI/Button Pengaturan.png" id="6_cepg5"]
 [ext_resource type="Texture2D" uid="uid://ddb8pc0n7n7ab" path="res://Assets/UI/Button Power.png" id="7_vkee2"]
 [ext_resource type="Texture2D" uid="uid://b5dfwa2l1kdjm" path="res://Assets/UI/Pause Panel.png" id="8_3as1s"]
@@ -17,7 +17,8 @@
 texture = ExtResource("4_3as1s")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3e07"]
-texture = ExtResource("5_dr1m3")
+texture = ExtResource("5_cepg5")
+region_rect = Rect2(215, 459, 662, 162)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7aoda"]
 texture = ExtResource("6_cepg5")
@@ -26,12 +27,12 @@ texture = ExtResource("6_cepg5")
 texture = ExtResource("7_vkee2")
 region_rect = Rect2(379, 355, 320, 319)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkee2"]
-texture = ExtResource("9_dr1m3")
-region_rect = Rect2(380, 355, 319, 319)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otk7d"]
 texture = ExtResource("10_cepg5")
+region_rect = Rect2(380, 355, 319, 319)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkee2"]
+texture = ExtResource("9_dr1m3")
 region_rect = Rect2(380, 355, 319, 319)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypprn"]
@@ -85,9 +86,9 @@ offset_right = 192.5
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_aijbn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_aijbn")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aijbn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aijbn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aijbn")
 
 [node name="MuatUlang" type="Button" parent="Button Manager"]
 layout_mode = 1
@@ -102,9 +103,9 @@ offset_right = 192.5
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_v3e07")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_v3e07")
 theme_override_styles/normal = SubResource("StyleBoxTexture_v3e07")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v3e07")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v3e07")
 
 [node name="Pengaturan" type="Button" parent="Button Manager"]
 layout_mode = 1
@@ -119,9 +120,9 @@ offset_right = 192.5
 offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_7aoda")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_7aoda")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7aoda")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7aoda")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7aoda")
 
 [node name="keluar" type="Button" parent="Button Manager"]
 layout_mode = 0
@@ -129,9 +130,9 @@ offset_left = 1103.0
 offset_top = 521.0
 offset_right = 1188.0
 offset_bottom = 606.0
-theme_override_styles/hover = SubResource("StyleBoxTexture_57t27")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_57t27")
 theme_override_styles/normal = SubResource("StyleBoxTexture_57t27")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_57t27")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57t27")
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="Button Manager"]
 visible = false
@@ -160,9 +161,9 @@ offset_right = 42.5
 offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_vkee2")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vkee2")
 theme_override_styles/normal = SubResource("StyleBoxTexture_otk7d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vkee2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vkee2")
 
 [node name="Label" type="Label" parent="Button Manager/NinePatchRect3"]
 layout_mode = 1
@@ -186,9 +187,9 @@ offset_left = 323.0
 offset_top = -26.0
 offset_right = 388.0
 offset_bottom = 39.0
-theme_override_styles/hover = SubResource("StyleBoxTexture_ypprn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ypprn")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ypprn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ypprn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ypprn")
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="Button Manager"]
 visible = false
@@ -228,13 +229,14 @@ theme_override_font_sizes/font_size = 40
 text = "Muat Ulang"
 
 [node name="MuatUlang" type="Button" parent="Button Manager/NinePatchRect4"]
+layout_mode = 0
 offset_left = 323.0
 offset_top = -26.0
 offset_right = 388.0
 offset_bottom = 39.0
-theme_override_styles/hover = SubResource("StyleBoxTexture_ypprn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ypprn")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ypprn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ypprn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ypprn")
 
 [connection signal="pressed" from="Button Manager/Mulai" to="." method="_on_mulai_pressed"]
 [connection signal="pressed" from="Button Manager/MuatUlang" to="." method="_on_muat_ulang_pressed"]
