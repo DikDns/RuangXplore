@@ -2885,28 +2885,28 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.44382e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(0.036280017, 0, 0, 0.9993417)
+bones/3/rotation = Quaternion(0.009269861, 0, 0, 0.999957)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998968, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.0998968, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.28856254, 0.9574611)
+bones/4/rotation = Quaternion(0, 0, -0.3568458, 0.9341633)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0998968, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.0998968, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.28856254, 0.9574611)
+bones/5/rotation = Quaternion(0, 0, 0.3568458, 0.9341633)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81969e-09, 0.167, 0.0263888)
 bones/6/enabled = true
 bones/6/position = Vector3(1.81969e-09, 0.167, 0.0263888)
-bones/6/rotation = Quaternion(0, -0.036280017, 0, 0.9993417)
+bones/6/rotation = Quaternion(0, -0.009269861, 0, 0.999957)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="head-mesh" type="MeshInstance3D" parent="character-female-b2/character-female-b/Skeleton3D"]
@@ -2949,7 +2949,7 @@ shape = SubResource("SeparationRayShape3D_84uqy")
 spring_length = 2.0
 
 [node name="CameraMarker" type="Marker3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm"]
-transform = Transform3D(1, 1.1805118e-07, 3.5085344e-07, 1.2512104e-08, 1.00001, 0.00011271238, 2.1451406e-07, 4.7683716e-07, 1.0014704, -1.3397994e-09, -0.0001142025, 1.9999611)
+transform = Transform3D(1, 1.18143866e-07, 3.5085344e-07, 1.2512104e-08, 1.00001, 0.00011271238, 2.1451406e-07, 4.7683716e-07, 1.0014704, -1.3397994e-09, -0.0001142025, 1.9999611)
 
 [node name="PivotDebug" type="MeshInstance3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot"]
 mesh = SubResource("SphereMesh_ag7lb")
@@ -2984,3 +2984,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00776863, 0.339737, 0.4241
 shape = SubResource("BoxShape3D_52ee3")
 
 [node name="MobileUI" parent="." instance=ExtResource("8_bhhdu")]
+visibility_layer = 4

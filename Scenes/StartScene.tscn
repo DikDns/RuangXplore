@@ -38,51 +38,50 @@ region_rect = Rect2(380, 355, 319, 319)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypprn"]
 texture = ExtResource("12_cepg5")
 
-[node name="Main Menu" type="Node2D" node_paths=PackedStringArray("pengarturan", "konfirmasi_muat_ulang")]
-script = ExtResource("1_6nqof")
-pengarturan = NodePath("Button Manager/NinePatchRect3")
-konfirmasi_muat_ulang = NodePath("Button Manager/NinePatchRect4")
-
-[node name="Button Manager" type="Control" parent="."]
+[node name="Main Menu" type="Control" node_paths=PackedStringArray("pengarturan")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1230.0
-offset_bottom = 649.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6nqof")
+pengarturan = NodePath("NinePatchRect3")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Button Manager"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -78.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_b8lvj")
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="Button Manager"]
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 392.5
-offset_top = 39.0
-offset_right = -458.5
-offset_bottom = -412.0
+offset_left = 423.0
+offset_top = 60.0
+offset_right = -428.0
+offset_bottom = -457.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_sj2jm")
 region_rect = Rect2(104, 370, 861, 432)
 
-[node name="Mulai" type="Button" parent="Button Manager"]
+[node name="Mulai" type="Button" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -229.0
+offset_left = -192.5
 offset_top = -48.0
-offset_right = 156.0
+offset_right = 192.5
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -90,51 +89,61 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_aijbn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_aijbn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_aijbn")
 
-[node name="MuatUlang" type="Button" parent="Button Manager"]
+[node name="MuatUlang" type="Button" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -229.0
-offset_top = 54.0
-offset_right = 156.0
-offset_bottom = 150.0
+offset_left = -192.5
+offset_top = 66.5
+offset_right = 192.5
+offset_bottom = 162.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_v3e07")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_v3e07")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v3e07")
 
-[node name="Pengaturan" type="Button" parent="Button Manager"]
+[node name="Pengaturan" type="Button" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -229.0
-offset_top = 158.0
-offset_right = 156.0
-offset_bottom = 254.0
+offset_left = -192.5
+offset_top = 183.5
+offset_right = 192.5
+offset_bottom = 279.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_7aoda")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7aoda")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7aoda")
 
-[node name="keluar" type="Button" parent="Button Manager"]
-layout_mode = 0
-offset_left = 1020.0
-offset_top = 521.0
-offset_right = 1105.0
-offset_bottom = 606.0
+[node name="keluar" type="Button" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -104.0
+offset_right = -23.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_57t27")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_57t27")
 theme_override_styles/hover = SubResource("StyleBoxTexture_57t27")
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="Button Manager"]
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 435.0
@@ -148,7 +157,7 @@ patch_margin_top = 200
 patch_margin_right = 150
 patch_margin_bottom = 200
 
-[node name="Mute" type="Button" parent="Button Manager/NinePatchRect3"]
+[node name="Mute" type="Button" parent="NinePatchRect3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,7 +174,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_otk7d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vkee2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vkee2")
 
-[node name="Label" type="Label" parent="Button Manager/NinePatchRect3"]
+[node name="Label" type="Label" parent="NinePatchRect3"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -181,7 +190,7 @@ theme_override_fonts/font = ExtResource("11_dr1m3")
 theme_override_font_sizes/font_size = 40
 text = "PENGATURAN"
 
-[node name="Pengaturan" type="Button" parent="Button Manager/NinePatchRect3"]
+[node name="Pengaturan" type="Button" parent="NinePatchRect3"]
 layout_mode = 0
 offset_left = 323.0
 offset_top = -26.0
@@ -191,7 +200,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ypprn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ypprn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ypprn")
 
-[node name="NinePatchRect4" type="NinePatchRect" parent="Button Manager"]
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -212,7 +221,7 @@ patch_margin_top = 200
 patch_margin_right = 150
 patch_margin_bottom = 200
 
-[node name="Label" type="Label" parent="Button Manager/NinePatchRect4"]
+[node name="Label" type="Label" parent="NinePatchRect4"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -228,7 +237,7 @@ theme_override_fonts/font = ExtResource("11_dr1m3")
 theme_override_font_sizes/font_size = 40
 text = "Muat Ulang"
 
-[node name="MuatUlang" type="Button" parent="Button Manager/NinePatchRect4"]
+[node name="MuatUlang" type="Button" parent="NinePatchRect4"]
 layout_mode = 0
 offset_left = 323.0
 offset_top = -26.0
@@ -238,9 +247,25 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ypprn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ypprn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ypprn")
 
-[connection signal="pressed" from="Button Manager/Mulai" to="." method="_on_mulai_pressed"]
-[connection signal="pressed" from="Button Manager/MuatUlang" to="." method="_on_muat_ulang_pressed"]
-[connection signal="pressed" from="Button Manager/Pengaturan" to="." method="_on_pengaturan_pressed"]
-[connection signal="pressed" from="Button Manager/keluar" to="." method="_on_keluar_pressed"]
-[connection signal="pressed" from="Button Manager/NinePatchRect3/Pengaturan" to="." method="_on_pengaturan_pressed"]
-[connection signal="pressed" from="Button Manager/NinePatchRect4/MuatUlang" to="." method="_on_muat_ulang_pressed"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = -74.0
+offset_right = 603.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "test"
+
+[connection signal="pressed" from="Mulai" to="." method="_on_mulai_pressed"]
+[connection signal="pressed" from="MuatUlang" to="." method="_on_muat_ulang_pressed"]
+[connection signal="pressed" from="Pengaturan" to="." method="_on_pengaturan_pressed"]
+[connection signal="pressed" from="keluar" to="." method="_on_keluar_pressed"]
+[connection signal="pressed" from="NinePatchRect3/Pengaturan" to="." method="_on_pengaturan_pressed"]
+[connection signal="pressed" from="NinePatchRect4/MuatUlang" to="." method="_on_muat_ulang_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

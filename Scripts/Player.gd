@@ -11,7 +11,7 @@ const run_speed = 3.0
 const sprint_speed = 5.0
 const jump_speed = 4.5
 const gravity = 10
-const touch_camera_sensitivity = 0.005
+const touch_camera_sensitivity = 1
 
 #--- NODE REFERENCES ---
 @onready var animation_tree = $AnimationTree
@@ -42,14 +42,10 @@ var _interact_button_was_pressed = false
 
 func _ready():
 	# --- KONEKSI KE SINGLETONS ---
-	# Player "mendengarkan" sinyal dari BattleManager dan SaveManager
-	# NOTE: Pastikan BattleManager punya signal "battle_started"
 	if BattleManager.has_signal("battle_started"):
 		BattleManager.battle_started.connect(_on_battle_started)
 	BattleManager.battle_ended.connect(_on_battle_ended)
 	
-	# Ambil data HP terakhir dari SaveManager
-	# NOTE: Pastikan SaveManager punya fungsi get_player_hp() dan set_player_hp()
 	if SaveManager:
 		current_hp = SaveManager.get_player_hp()
 
@@ -88,7 +84,9 @@ func _unhandled_input(event):
 		if event is InputEventScreenDrag and event.index == camera_touch_index:
 			var mouse_motion_event = InputEventMouseMotion.new()
 			mouse_motion_event.relative = event.relative
-			tpc_node._input(mouse_motion_event)
+			# --- INI PERBAIKANNYA ---
+			# Ganti tpc_node._input() dengan Input.parse_input_event()
+			Input.parse_input_event(mouse_motion_event)
 
 func _process(_delta):
 	if is_in_battle: return
@@ -169,19 +167,15 @@ func _on_battle_started():
 func _on_battle_ended(player_won: bool):
 	is_in_battle = false
 	if not player_won:
-		# Jika kalah, reset HP di sini.
 		current_hp = max_hp
-		# Laporkan HP baru ke SaveManager
 		SaveManager.set_player_hp(current_hp)
 		print("Player lost. HP has been restored.")
 	else:
 		print("Player won the battle!")
-		# Setelah menang, HP pemain juga harus di-save
 		SaveManager.set_player_hp(current_hp)
 
 func take_damage(amount: int):
 	current_hp -= amount
-	# Laporkan HP terbaru ke SaveManager setiap kali kena damage
 	SaveManager.set_player_hp(current_hp)
 	print("Player kena damage! HP sisa: ", current_hp)
 

@@ -74,6 +74,7 @@ texture_over = ExtResource("6_8y4ke")
 texture_progress = ExtResource("7_2sjxy")
 
 [node name="QuizPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
