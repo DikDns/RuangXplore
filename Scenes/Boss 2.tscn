@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cqagwuehmx63p"]
+[gd_scene load_steps=72 format=3 uid="uid://cqagwuehmx63p"]
 
 [ext_resource type="Texture2D" uid="uid://dnnqwra0vfg2t" path="res://Assets/Boss 1/syferfontein_18d_clear_puresky_1k.hdr" id="1_smxey"]
 [ext_resource type="Script" uid="uid://ddxyecpvr8dvi" path="res://Scripts/BossScene.gd" id="1_u6f67"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c6adgx1e22q8h" path="res://Assets/Boss 1/Models/scenes/cuboid_keroco_1.tscn" id="29_kpu61"]
 [ext_resource type="PackedScene" uid="uid://c26wl04bywv7y" path="res://Assets/Characters/cewek.glb" id="29_mtvfj"]
 [ext_resource type="PackedScene" uid="uid://bnb5ird7gpsfr" path="res://Assets/Boss 1/Models/scenes/cuboid_keroco_2.tscn" id="30_vbcfg"]
+[ext_resource type="AudioStream" uid="uid://docwpwctdou6g" path="res://Assets/Audio/bgm/level2.mp3" id="31_mkled"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u6f67"]
 panorama = ExtResource("1_smxey")
@@ -4366,5 +4367,10 @@ shape = SubResource("BoxShape3D_4bo5e")
 
 [node name="SpawnMarker" type="Marker3D" parent="Keroco2/BattleTrigger"]
 transform = Transform3D(0.9999999, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 0.9999999, 0, 0, 9.933592)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_mkled")
+autoplay = true
+parameters/looping = false
 
 [editable path="cewek"]
