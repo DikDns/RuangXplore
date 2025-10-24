@@ -10,12 +10,12 @@
 [ext_resource type="FontFile" uid="uid://cm47m3gpyq88e" path="res://Assets/UI for MainMenu/ToyBox.ttf" id="7_cmrfp"]
 [ext_resource type="Texture2D" uid="uid://dl7stlclmfxyk" path="res://Assets/UI/Pause.png" id="8_loo7a"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loo7a"]
-texture = ExtResource("2_df05h")
-region_rect = Rect2(380, 355, 319, 319)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_853f1"]
 texture = ExtResource("3_8um5k")
+region_rect = Rect2(380, 355, 319, 319)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loo7a"]
+texture = ExtResource("2_df05h")
 region_rect = Rect2(380, 355, 319, 319)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xim88"]
@@ -95,18 +95,18 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_loo7a")
 theme_override_styles/normal = SubResource("StyleBoxTexture_853f1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_loo7a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_loo7a")
 
 [node name="PauseButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/TopButtonContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_xim88")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xim88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xim88")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
 
 [node name="BottomButtonContainer2" type="HBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer"]
 layout_mode = 2
@@ -118,18 +118,18 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_koqhg")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_koqhg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_koqhg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_koqhg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_koqhg")
 
 [node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/BottomButtonContainer2"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/hover = SubResource("StyleBoxTexture_cmrfp")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cmrfp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cmrfp")
 
 [node name="Tugas Sekarang" type="VBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer"]
 layout_mode = 2
