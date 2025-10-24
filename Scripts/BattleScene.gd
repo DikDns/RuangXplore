@@ -39,7 +39,7 @@ func _ready():
 	player.scale = Vector3(0.5, 0.5, 0.5)
 	enemy.scale = Vector3(0.25, 0.25, 0.25)
 	
-	var player_camera = player.get_node("ThirdPersonCamera/Camera")
+	var player_camera = player.find_child("Camera")
 	player_camera.current = false
 	battle_camera.make_current()
 	

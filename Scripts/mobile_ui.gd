@@ -1,5 +1,7 @@
 extends Control
 
+@onready var virtual_joystick := $"Virtual Joystick"
+
 func _ready():
 	# Script ini "mendengarkan" signal dari DialogueManager
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
@@ -8,6 +10,8 @@ func _ready():
 # Fungsi ini akan otomatis terpanggil ketika dialog dimulai
 func _on_dialogue_started(_resource: DialogueResource):
 	print("Dialogue started, hiding mobile UI.")
+	virtual_joystick._reset()
+	virtual_joystick.set_process_input(false)
 	hide()
 
 
@@ -15,4 +19,5 @@ func _on_dialogue_started(_resource: DialogueResource):
 func _on_dialogue_ended(_resource: DialogueResource):
 	print("Dialogue ended, showing mobile UI.")
 	if BattleManager.active_enemy_id.is_empty():
+		virtual_joystick.set_process_input(true)
 		show()

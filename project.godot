@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RuangXplore"
-run/main_scene="uid://cisvjlxyddthe"
+run/main_scene="uid://bfempcengopvk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://dkpkjvj6ljgxh"
 
@@ -19,7 +19,7 @@ config/icon="uid://dkpkjvj6ljgxh"
 
 BattleManager="*res://Scripts/BattleManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-SaveManager="*res://Scripts/SaveManager.gd"
+SaveManager="res://Scripts/SaveManager.gd"
 
 [display]
 

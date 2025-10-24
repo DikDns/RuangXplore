@@ -2706,9 +2706,6 @@ environment = SubResource("Environment_d6sgd")
 transform = Transform3D(0.67816, -0.556327, 0.480208, -1.61004e-08, 0.653421, 0.756995, -0.734915, -0.513364, 0.443123, 0, 21.2, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_u1qbg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.5, 19.5)
-
 [node name="Wall" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -4037,5 +4034,8 @@ dialogue_start = "awal_masuk"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Keroco/TriggerFirstDialogue/Actionable"]
 transform = Transform3D(1.3799236, 0, 0, 0, 1.3799233, 0, 0, 0, 1.3799236, -0.30110264, 0.44089139, 0.4649768)
 shape = SubResource("BoxShape3D_dlj72")
+
+[node name="Player" parent="." instance=ExtResource("1_u1qbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8365365, 0.050000086, 19.05133)
 
 [editable path="cewek"]

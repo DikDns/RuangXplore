@@ -1,37 +1,39 @@
 extends CharacterBody3D
 class_name Player
 
-#--- BATTLE STATS ---
+#--- REFERENSI NODE BARU (DARI SCRIPT BARU) ---
+@onready var view_y := $view_y
+@onready var view_x := $view_y/view_x
+@onready var body := $body # Asumsi ini adalah node 3D/Mesh player
+
+#--- BATTLE STATS (DARI SCRIPT LAMA) ---
 var max_hp: int = 100
 var current_hp: int = 100
 var is_in_battle: bool = false
 
-#--- MOVEMENT VARS ---
-const run_speed = 3.0
-const sprint_speed = 5.0
-const jump_speed = 4.5
-const gravity = 10
-const touch_camera_sensitivity = 1
+#--- MOVEMENT VARS (GABUNGAN) ---
+const run_speed = 5.0 # Diambil dari SPEED script baru
+const sprint_speed = 8.0 # Bisa lo ganti, ini nilai dari script lama (5.0)
+const jump_speed = 4.5 # Diambil dari JUMP_VELOCITY script baru
+@onready var camera_sensitivity := 0.01 # Diambil dari sensitivity script baru
 
-#--- NODE REFERENCES ---
+#--- NODE REFERENCES (DARI SCRIPT LAMA) ---
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
-@onready var camera = $ThirdPersonCamera/Camera
-@onready var tpc_node = $ThirdPersonCamera
 @onready var projectile_spawn_point = $ProjectileSpawnPoint
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
-#--- MOBILE UI REFERENCES ---
+#--- MOBILE UI REFERENCES (DARI SCRIPT LAMA) ---
 var mobile_ui: Control
 var jump_button: TextureButton
 var sprint_button: TextureButton
 var interact_button: TextureButton
 
+#--- VARS LAIN (DARI SCRIPT LAMA) ---
 var fireball_scene = preload("res://Scenes/Projectiles/Fireball.tscn")
 var is_jumping = false
-var camera_touch_index = -1
 
-#--- REFACTOR: Variabel buat nyimpen status input yang konsisten ---
+#--- REFACTOR VARS INPUT (DARI SCRIPT LAMA) ---
 var _input_dir = Vector2.ZERO
 var _is_sprint_pressed = false
 var _is_jump_pressed = false
@@ -55,62 +57,53 @@ func _ready():
 		jump_button = mobile_ui.find_child("JumpButton")
 		sprint_button = mobile_ui.find_child("SprintButton")
 		interact_button = mobile_ui.find_child("InteractButton")
+	
+	# Logic mouse capture desktop dihapus
 
-	if not OS.has_feature("mobile"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		tpc_node.set_process_unhandled_input(false)
 
 func _input(event: InputEvent) -> void:
 	if is_in_battle: return
 	
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
-		if event.is_pressed():
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			tpc_node.set_process_unhandled_input(true)
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			tpc_node.set_process_unhandled_input(false)
-			
-	if OS.has_feature("mobile"):
-		if event is InputEventScreenTouch:
-			if event.position.x > get_viewport().get_visible_rect().size.x / 2:
-				if event.is_pressed() and camera_touch_index == -1:
-					camera_touch_index = event.index
-					tpc_node.set_process_unhandled_input(true)
-				elif not event.is_pressed() and event.index == camera_touch_index:
-					camera_touch_index = -1
-					tpc_node.set_process_unhandled_input(false)
+	# Logic kamera hanya untuk ScreenDrag (karena mouse emulasi touch)
+	if event is InputEventScreenDrag:
+		view_x.rotation.x -= event.relative.y * camera_sensitivity
+		view_y.rotation.y -= event.relative.x * camera_sensitivity
+		view_x.rotation.x = clampf(view_x.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+	
+	# Logic InputEventMouseMotion dihapus
 
-		if event is InputEventScreenDrag and event.index == camera_touch_index:
-			var mouse_motion_event = InputEventMouseMotion.new()
-			mouse_motion_event.relative = event.relative
-			# --- INI PERBAIKANNYA ---
-			# Ganti tpc_node._input() dengan Input.parse_input_event()
-			Input.parse_input_event(mouse_motion_event)
 
 func _process(_delta):
+	# Dari script LAMA
 	if is_in_battle: return
 	handle_movement_animation()
 
-func _physics_process(delta):
-	_get_inputs()
 
+func _physics_process(delta: float) -> void:
+	_get_inputs() # Dari script LAMA
+	
+	# Add the gravity (dari script BARU)
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity += get_gravity() * delta
 	else:
-		is_jumping = false
+		is_jumping = false # Dari script LAMA
 
+	# Handle movement (dari script LAMA)
 	if not is_in_battle:
 		handle_movement_input(delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, run_speed)
 		velocity.z = move_toward(velocity.z, 0, run_speed)
 
-	move_and_slide()
+	move_and_slide() # Dari script BARU
 
-# Fungsi baru buat ngumpulin semua input di satu tempat
+
+# Fungsi dari script LAMA
 func _get_inputs():
-	_input_dir = Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
+	# --- PERBAIKAN 1 ---
+	# Balikin ke standar script "player baru" asli lo: ("ui_up", "ui_down")
+	# "ui_up" (W) akan ngasih nilai -1
+	_input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	_is_sprint_pressed = Input.is_action_pressed("ui_sprint") or (sprint_button and sprint_button.is_pressed())
 	_is_jump_pressed = Input.is_action_just_pressed("ui_jump") or (jump_button and jump_button.is_pressed() and not _jump_button_was_pressed)
@@ -119,32 +112,43 @@ func _get_inputs():
 	if jump_button: _jump_button_was_pressed = jump_button.is_pressed()
 	if interact_button: _interact_button_was_pressed = interact_button.is_pressed()
 
+
+# Fungsi dari script LAMA (DIMODIFIKASI)
 func handle_movement_input(_delta):
+	# Jump logic
 	if _is_jump_pressed and is_on_floor():
 		velocity.y = jump_speed
 		is_jumping = true
 	
+	# Interact logic
 	if _is_interact_pressed:
 		var actionables = actionable_finder.get_overlapping_areas()
 		if not actionables.is_empty():
 			actionables[0].action()
 
+	# Movement logic
 	if _input_dir.length() > 0:
-		var forward = -camera.global_transform.basis.z.normalized()
-		var right = camera.global_transform.basis.x.normalized()
-		forward.y = 0; right.y = 0
-		var movement_dir = (forward * _input_dir.y + right * _input_dir.x).normalized()
-
-		var target_rotation = atan2(movement_dir.x, movement_dir.z)
-		rotation.y = lerp_angle(rotation.y, target_rotation, 0.1)
+		# --- PERBAIKAN 2 ---
+		# Kita pake logic dari script "player baru" asli lo.
+		# Ini udah bener nerjemahin input kamera dan WASD.
+		var direction: Vector3 = (view_y.global_basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
+		
+		# --- MODIFIKASI KUNCI ---
+		# Putar $body, BUKAN si CharacterBody-nya
+		var target_rotation = atan2(direction.x, direction.z)
+		body.rotation.y = lerp_angle(body.rotation.y, target_rotation, 0.1)
 
 		var current_speed = sprint_speed if _is_sprint_pressed else run_speed
-		velocity.x = movement_dir.x * current_speed
-		velocity.z = movement_dir.z * current_speed
+		
+		# Ganti `movement_dir` jadi `direction`
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, run_speed)
 		velocity.z = move_toward(velocity.z, 0, run_speed)
 
+
+# Fungsi dari script LAMA
 func handle_movement_animation():
 	if is_jumping:
 		if animation_state.get_current_node() != "jump": animation_state.travel("jump")
@@ -156,16 +160,18 @@ func handle_movement_animation():
 	else:
 		if animation_state.get_current_node() != "idle": animation_state.travel("idle")
 
-#--- FUNGSI BATTLE ---
+#--- FUNGSI BATTLE (DARI SCRIPT LAMA) ---
 
-# Fungsi ini akan otomatis terpanggil saat battle dimulai
 func _on_battle_started():
 	is_in_battle = true
 	print("Player entering battle state.")
+	# Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # Dihapus
 
-# Fungsi ini akan otomatis terpanggil setiap kali battle berakhir
 func _on_battle_ended(player_won: bool):
 	is_in_battle = false
+	
+	# Logic mouse capture desktop dihapus
+		
 	if not player_won:
 		current_hp = max_hp
 		SaveManager.set_player_hp(current_hp)

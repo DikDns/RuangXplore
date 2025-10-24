@@ -1,6 +1,6 @@
 [gd_scene load_steps=72 format=4 uid="uid://tisgxqhd71wk"]
 
-[ext_resource type="Script" uid="uid://dplbx1q6ae66b" path="res://Scripts/Player.gd" id="1_7m8ro"]
+[ext_resource type="Script" uid="uid://dplbx1q6ae66b" path="res://Scripts/Player_Old.gd" id="1_7m8ro"]
 [ext_resource type="Texture2D" uid="uid://g1y6dhhv8gwx" path="res://Assets/Characters/cowok_colormap2.png" id="2_niw6a"]
 [ext_resource type="Texture2D" uid="uid://b0ii4pg4l1flw" path="res://Assets/Characters/cowok_colormap3.png" id="3_nfgwa"]
 [ext_resource type="Script" uid="uid://bovff74kqkdym" path="res://addons/third-person-camera/third_person_camera/ThirdPersonCamera.gd" id="3_sqc4o"]

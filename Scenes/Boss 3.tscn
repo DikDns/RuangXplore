@@ -2706,9 +2706,6 @@ environment = SubResource("Environment_xnfmd")
 transform = Transform3D(-0.853551, 0.451208, -0.260505, 0, 0.5, 0.866025, 0.52101, 0.739197, -0.426775, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_gpi4r")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.5, 19.5)
-
 [node name="Wall" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -4035,6 +4032,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.8000
 
 [node name="Stair12" parent="." instance=ExtResource("22_gpi4r")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.3, -0.1, -15.0367)
+visible = false
 
 [node name="Stair13" parent="." instance=ExtResource("22_gpi4r")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.7, 1.1, -12.5467)
@@ -4119,5 +4117,8 @@ transform = Transform3D(0.99978936, 0, -0.020523539, 0, 1, 0, 0.020523539, 0, 0.
 target_scene_path = "uid://r7if1uc6ijcj"
 portal_name = "Sekolah"
 boss_id = ""
+
+[node name="Player" parent="." instance=ExtResource("2_gpi4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3677033, 0.050000325, 18.901936)
 
 [editable path="cewek"]

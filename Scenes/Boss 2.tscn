@@ -2699,9 +2699,6 @@ environment = SubResource("Environment_xnfmd")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_u6f67")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.5, 19.5)
-
 [node name="Wall" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -4371,5 +4368,8 @@ transform = Transform3D(0.9999999, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0,
 stream = ExtResource("31_mkled")
 autoplay = true
 parameters/looping = false
+
+[node name="Player" parent="." instance=ExtResource("2_u6f67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85976386, 0.05000019, 19.351307)
 
 [editable path="cewek"]

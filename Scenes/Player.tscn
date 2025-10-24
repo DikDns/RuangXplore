@@ -1,13 +1,8 @@
-[gd_scene load_steps=72 format=4 uid="uid://doh0w0if3r85g"]
+[gd_scene load_steps=65 format=4 uid="uid://doh0w0if3r85g"]
 
-[ext_resource type="Script" uid="uid://dplbx1q6ae66b" path="res://Scripts/Player.gd" id="1_r5af8"]
+[ext_resource type="Script" uid="uid://c251ptaaau7i8" path="res://Scripts/player.gd" id="1_megsn"]
 [ext_resource type="Texture2D" uid="uid://b30jm72p827ls" path="res://Assets/GLB format/Textures/colormap.png" id="2_vcfmy"]
-[ext_resource type="Script" uid="uid://bovff74kqkdym" path="res://addons/third-person-camera/third_person_camera/ThirdPersonCamera.gd" id="3_0ng7k"]
 [ext_resource type="Texture2D" uid="uid://b0dl4x8mh5dck" path="res://Assets/GLB format/Budi_colormap2.png" id="3_yoq75"]
-[ext_resource type="Script" uid="uid://dsgy1li72klp3" path="res://addons/third-person-camera/third_person_camera/CameraShakePreset.gd" id="4_52ee3"]
-[ext_resource type="Resource" uid="uid://8wq0le7mywh4" path="res://addons/third-person-camera/third_person_camera/camera-shake-presets/DefaultCameraShakePreset.tres" id="4_i33le"]
-[ext_resource type="Resource" uid="uid://cn4iinuc23o7j" path="res://addons/third-person-camera/third_person_camera/camera-shake-presets/GentleSway.tres" id="5_43njg"]
-[ext_resource type="Script" uid="uid://bfbqj1if5qo6l" path="res://addons/third-person-camera/third_person_camera/CameraShake.gd" id="6_5jvsx"]
 [ext_resource type="PackedScene" uid="uid://icdrilsphxiq" path="res://Scenes/MobileUI.tscn" id="8_bhhdu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1fx63"]
@@ -2746,16 +2741,8 @@ _data = {
 &"wheelchair-sit": SubResource("Animation_kstoi")
 }
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_84uqy"]
-margin = 1.135
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bjii"]
-albedo_color = Color(0.8, 0.686275, 0.215686, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_ag7lb"]
-material = SubResource("StandardMaterial3D_2bjii")
-radius = 0.05
-height = 0.1
+[sub_resource type="SphereShape3D" id="SphereShape3D_dewec"]
+radius = 0.2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_52ee3"]
 animation = &"attack-melee-right"
@@ -2848,17 +2835,18 @@ graph_offset = Vector2(-161.334, 29.8519)
 size = Vector3(0.785427, 0.667938, 0.379715)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
-script = ExtResource("1_r5af8")
+script = ExtResource("1_megsn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221505, 0)
 shape = SubResource("SphereShape3D_1fx63")
 
-[node name="character-female-b2" type="Node3D" parent="."]
+[node name="character-female-b2" type="Node3D" parent="body"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.221505, 0)
 
-[node name="character-female-b" type="Node3D" parent="character-female-b2"]
+[node name="character-female-b" type="Node3D" parent="body/character-female-b2"]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="character-female-b2/character-female-b"]
+[node name="Skeleton3D" type="Skeleton3D" parent="body/character-female-b2/character-female-b"]
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -2885,92 +2873,62 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.44382e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(0.012385631, 0, 0, 0.99992335)
+bones/3/rotation = Quaternion(0.003314756, 0, 0, 0.9999945)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998968, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.0998968, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.34809777, 0.9374583)
+bones/4/rotation = Quaternion(0, 0, -0.3734773, 0.92763937)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0998968, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.0998968, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.34809777, 0.9374583)
+bones/5/rotation = Quaternion(0, 0, 0.3734773, 0.92763937)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81969e-09, 0.167, 0.0263888)
 bones/6/enabled = true
 bones/6/position = Vector3(1.81969e-09, 0.167, 0.0263888)
-bones/6/rotation = Quaternion(0, -0.012385631, 0, 0.99992335)
+bones/6/rotation = Quaternion(0, -0.003314756, 0, 0.9999945)
 bones/6/scale = Vector3(1, 1, 1)
 
-[node name="head-mesh" type="MeshInstance3D" parent="character-female-b2/character-female-b/Skeleton3D"]
+[node name="head-mesh" type="MeshInstance3D" parent="body/character-female-b2/character-female-b/Skeleton3D"]
 mesh = SubResource("ArrayMesh_xcl0a")
 skin = SubResource("Skin_pqolf")
 
-[node name="body-mesh2" type="MeshInstance3D" parent="character-female-b2/character-female-b/Skeleton3D"]
+[node name="body-mesh2" type="MeshInstance3D" parent="body/character-female-b2/character-female-b/Skeleton3D"]
 mesh = SubResource("ArrayMesh_ksbbd")
 skin = SubResource("Skin_glx4g")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="character-female-b2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="body/character-female-b2"]
 libraries = {
 &"": SubResource("AnimationLibrary_l0duu")
 }
 
-[node name="ThirdPersonCamera" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("3_0ng7k")
-distance_from_pivot = 2.0
-initial_dive_angle_deg = -30.0
-tilt_upper_limit_deg = 40.0
-tilt_lower_limit_deg = -40.0
-tilt_sensitiveness = 800.0
-horizontal_rotation_sensitiveness = 800.0
-camera_speed = 1.0
-current = true
-mouse_follow = true
-shake_presets = Array[ExtResource("4_52ee3")]([ExtResource("4_i33le"), ExtResource("5_43njg")])
+[node name="view_y" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="RotationPivot" type="Node3D" parent="ThirdPersonCamera"]
-transform = Transform3D(1, 0, 0, 0, 0.8660249, 0.49999973, 0, -0.49999973, 0.8660249, 0, 0, 0)
-top_level = true
+[node name="view_x" type="SpringArm3D" parent="view_y"]
+shape = SubResource("SphereShape3D_dewec")
+spring_length = 1.5
 
-[node name="OffsetPivot" type="Node3D" parent="ThirdPersonCamera/RotationPivot"]
-transform = Transform3D(1, -3.9187e-07, 6.47546e-10, 3.9448298e-07, 1.0000098, 5.7131052e-05, -2.2652102e-11, -5.7965517e-05, 1.00002, 0, 0, 0)
-
-[node name="CameraSpringArm" type="SpringArm3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot"]
-process_priority = 11
-shape = SubResource("SeparationRayShape3D_84uqy")
-spring_length = 2.0
-
-[node name="CameraMarker" type="Marker3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot/CameraSpringArm"]
-transform = Transform3D(1, 1.1820301e-07, 3.5085344e-07, 1.2512104e-08, 1.00001, 0.00011271238, 2.1451406e-07, 4.7683716e-07, 1.0014704, -1.3397994e-09, -0.0001142025, 1.9999611)
-
-[node name="PivotDebug" type="MeshInstance3D" parent="ThirdPersonCamera/RotationPivot/OffsetPivot"]
-mesh = SubResource("SphereMesh_ag7lb")
-
-[node name="CameraShaker" type="Node3D" parent="ThirdPersonCamera" node_paths=PackedStringArray("camera")]
-script = ExtResource("6_5jvsx")
-camera = NodePath("../Camera")
-
-[node name="Camera" type="Camera3D" parent="ThirdPersonCamera"]
-transform = Transform3D(1, -5.7688877e-15, 9.992006e-15, 0, 0.8660254, 0.5, -1.15377754e-14, -0.5, 0.8660254, 1.9984014e-14, 1, 1.7320509)
-top_level = true
+[node name="Camera" type="Camera3D" parent="view_y/view_x"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 current = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../character-female-b2")
+root_node = NodePath("../body/character-female-b2")
 tree_root = SubResource("AnimationNodeStateMachine_ktdq2")
 advance_expression_base_node = NodePath("..")
-anim_player = NodePath("../character-female-b2/AnimationPlayer")
+anim_player = NodePath("../body/character-female-b2/AnimationPlayer")
 
 [node name="ProjectileSpawnPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.775836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.0968442)
 
 [node name="Direction" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025254)
@@ -2980,7 +2938,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/ActionableFinder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00776863, 0.339737, 0.424187)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00776863, 0.339737, -0.45053166)
 shape = SubResource("BoxShape3D_52ee3")
 
 [node name="MobileUI" parent="." instance=ExtResource("8_bhhdu")]
