@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cisvjlxyddthe"]
+[gd_scene load_steps=73 format=3 uid="uid://cisvjlxyddthe"]
 
 [ext_resource type="Script" uid="uid://ddxyecpvr8dvi" path="res://Scripts/BossScene.gd" id="1_ptki2"]
 [ext_resource type="Texture2D" uid="uid://b7jng6wj52ay7" path="res://Assets/Boss 1/snow_field_puresky_1k.hdr" id="1_uolil"]
@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://dndxm0m45lcar" path="res://Scenes/Dialogue/trigger_initial_dialogue.tscn" id="25_b3q14"]
 [ext_resource type="Resource" uid="uid://dkwweuf3brfvo" path="res://Dialogue/dunia_prisma.dialogue" id="27_2kkdi"]
 [ext_resource type="PackedScene" uid="uid://4yr7naxw5mfe" path="res://Scenes/Dialogue/actionable.tscn" id="27_ptki2"]
-[ext_resource type="Resource" uid="uid://drq1gs8idgshb" path="res://Dialogue/dunia_kubus.dialogue" id="28_2kkdi"]
 [ext_resource type="PackedScene" uid="uid://betwb0io5sjxc" path="res://Scenes/Portal.tscn" id="31_2kkdi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u6f67"]
@@ -3994,8 +3993,8 @@ transform = Transform3D(0.7321983, 0, 0.68109155, 0, 1, 0, -0.68109155, 0, 0.732
 
 [node name="Actionable" parent="Boss/TriggerFirstDialogue" instance=ExtResource("27_ptki2")]
 transform = Transform3D(-0.76604474, 0, -0.6427879, 0, 1, 0, 0.6427879, 0, -0.76604474, -2.045971, 0.02774036, -1.7588139)
-dialogue_resources = ExtResource("28_2kkdi")
-dialogue_start = "awal_masuk"
+dialogue_resources = ExtResource("27_2kkdi")
+dialogue_start = "boss"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boss/TriggerFirstDialogue/Actionable"]
 transform = Transform3D(1.3799236, 0, 0, 0, 1.3799233, 0, 0, 0, 1.3799236, -0.30110264, 0.44089139, 0.4649768)
@@ -4108,7 +4107,7 @@ transform = Transform3D(0.7321983, 0, 0.68109155, 0, 1, 0, -0.68109155, 0, 0.732
 
 [node name="Actionable" parent="Keroco/TriggerFirstDialogue" instance=ExtResource("27_ptki2")]
 transform = Transform3D(-0.76604474, 0, -0.6427879, 0, 1, 0, 0.6427879, 0, -0.76604474, -2.4408517, 0.02774036, -1.4198027)
-dialogue_resources = ExtResource("28_2kkdi")
+dialogue_resources = ExtResource("27_2kkdi")
 dialogue_start = "awal_masuk"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Keroco/TriggerFirstDialogue/Actionable"]

@@ -60,7 +60,7 @@ func _ready():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		tpc_node.set_process_unhandled_input(false)
 
-func _unhandled_input(event):
+func _input(event: InputEvent) -> void:
 	if is_in_battle: return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
