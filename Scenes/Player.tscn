@@ -2873,28 +2873,28 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44382e-15, 0.17625, -0.02875)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.44382e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(0.003314756, 0, 0, 0.9999945)
+bones/3/rotation = Quaternion(-0.03283153, 0, 0, 0.999461)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998968, 0.1115, 0.0115)
 bones/4/enabled = true
 bones/4/position = Vector3(0.0998968, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.3734773, 0.92763937)
+bones/4/rotation = Quaternion(0, 0, -0.30162174, 0.9534277)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0998968, 0.1115, 0.0115)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.0998968, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.3734773, 0.92763937)
+bones/5/rotation = Quaternion(0, 0, 0.30162174, 0.9534277)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81969e-09, 0.167, 0.0263888)
 bones/6/enabled = true
 bones/6/position = Vector3(1.81969e-09, 0.167, 0.0263888)
-bones/6/rotation = Quaternion(0, -0.003314756, 0, 0.9999945)
+bones/6/rotation = Quaternion(0, 0.03283153, 0, 0.999461)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="head-mesh" type="MeshInstance3D" parent="body/character-female-b2/character-female-b/Skeleton3D"]
@@ -2928,7 +2928,7 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../body/character-female-b2/AnimationPlayer")
 
 [node name="ProjectileSpawnPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.0968442)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.6133126)
 
 [node name="Direction" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025254)
