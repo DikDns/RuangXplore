@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhtj10rdng0m1"]
+[gd_scene load_steps=15 format=3 uid="uid://bhtj10rdng0m1"]
 
 [ext_resource type="Script" uid="uid://bis228dy0j75n" path="res://Scripts/Enemy.gd" id="1_fo13x"]
 [ext_resource type="PackedScene" uid="uid://dfvetw6lmopxf" path="res://Assets/Boss 1/Models/Monster/Prism Monster.glb" id="1_j0182"]
 [ext_resource type="Resource" uid="uid://dkwweuf3brfvo" path="res://Dialogue/dunia_prisma.dialogue" id="2_4m0y8"]
 [ext_resource type="Script" uid="uid://be7varhtyfh82" path="res://Scripts/QuizQuestion.gd" id="3_w6yxo"]
-[ext_resource type="Resource" uid="uid://cm6bvs48fdsts" path="res://Resources/Questions/SoalPrisma1.tres" id="4_kogyf"]
 [ext_resource type="Resource" uid="uid://d83ikayk8xp7" path="res://Resources/Questions/SoalPrisma2.tres" id="5_7q66x"]
 [ext_resource type="Resource" uid="uid://dx3dqdcx6pwye" path="res://Resources/Questions/SoalPrisma3.tres" id="6_ih3cj"]
 [ext_resource type="Resource" uid="uid://chkou1ycf3fiq" path="res://Resources/Questions/SoalPrisma4.tres" id="7_6ofk1"]
@@ -24,7 +23,7 @@ enemy_id = "monster_prisma"
 dialogue_resource = ExtResource("2_4m0y8")
 dialogue_title = "boss_start"
 max_hp = 200
-questions = Array[ExtResource("3_w6yxo")]([ExtResource("4_kogyf"), ExtResource("5_7q66x"), ExtResource("6_ih3cj"), ExtResource("7_6ofk1"), ExtResource("8_40kmk"), ExtResource("9_shywq"), ExtResource("10_5f3l3"), ExtResource("11_frbc1"), ExtResource("12_amj7q"), ExtResource("13_uau1p")])
+questions = Array[ExtResource("3_w6yxo")]([ExtResource("5_7q66x"), ExtResource("6_ih3cj"), ExtResource("7_6ofk1"), ExtResource("8_40kmk"), ExtResource("9_shywq"), ExtResource("10_5f3l3"), ExtResource("11_frbc1"), ExtResource("12_amj7q"), ExtResource("13_uau1p")])
 metadata/_edit_group_ = true
 
 [node name="Prism Monster" parent="." instance=ExtResource("1_j0182")]
